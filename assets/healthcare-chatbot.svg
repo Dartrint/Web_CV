@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" role="img" aria-labelledby="title">
+  <title id="title">Healthcare AI Chatbot illustration</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071b2c"/><stop offset="1" stop-color="#12394c"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#63f2df" stop-opacity=".44"/><stop offset="1" stop-color="#63f2df" stop-opacity="0"/></radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="13" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1536" height="1024" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#8ff9ec"><path d="M0 160h1536M0 352h1536M0 544h1536M0 736h1536M192 0v1024M480 0v1024M768 0v1024M1056 0v1024M1344 0v1024"/></g>
+  <circle cx="768" cy="505" r="405" fill="url(#halo)"/>
+  <g fill="none" stroke="#55ead7" stroke-width="3" opacity=".62"><path d="M295 285 541 410M1245 286 996 410M350 770 554 617M1180 770 980 617"/><circle cx="295" cy="285" r="10" fill="#55ead7"/><circle cx="1245" cy="286" r="10" fill="#55ead7"/><circle cx="350" cy="770" r="10" fill="#55ead7"/><circle cx="1180" cy="770" r="10" fill="#55ead7"/></g>
+  <g filter="url(#glow)"><path d="M512 344c0-55 45-100 100-100h312c55 0 100 45 100 100v209c0 55-45 100-100 100H751l-119 96 22-96h-42c-55 0-100-45-100-100Z" fill="#0d3448" stroke="#74f5e1" stroke-width="8"/><circle cx="666" cy="450" r="20" fill="#74f5e1"/><circle cx="768" cy="450" r="20" fill="#74f5e1"/><circle cx="870" cy="450" r="20" fill="#74f5e1"/></g>
+  <g transform="translate(709 686)"><rect width="118" height="118" rx="24" fill="#76f5e2"/><path d="M51 24h17v27h26v17H68v26H51V68H24V51h27Z" fill="#093142"/></g>
+  <text x="768" y="925" fill="#9dece5" font-family="monospace" font-size="26" text-anchor="middle" letter-spacing="9">HEALTHCARE · AI ASSISTANT</text>
+</svg>
