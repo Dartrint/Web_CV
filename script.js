@@ -1,21 +1,305 @@
-const glow = document.querySelector('.cursor-glow');
+/* ============================================
+   Portfolio Script — Trần Thành Đạt
+   ============================================ */
+
+// ---- i18n ----
 const translations = {
-  vi: { navAbout:'Giới thiệu', navProjects:'Dự án', navRecognition:'Ghi nhận', headerCta:'Liên hệ', availability:'Đang tìm cơ hội thực tập AI & nghiên cứu', heroTitle:'Xây dựng hệ thống AI<br><em>giải quyết vấn đề thật.</em>', heroDescription:'Sinh viên năm cuối Toán – Tin tại VNUHCM-US, tập trung vào LLM, RAG và Multi-Agent workflows để tạo ra sản phẩm AI hữu ích, có thể triển khai.', viewProjects:'Xem dự án', scroll:'Khám phá thêm', aboutLabel:'Về tôi', aboutHeading:'Kết nối tư duy<br><span>định lượng với AI.</span>', aboutText:'Tôi đang theo đuổi song song Toán – Khoa học máy tính và Quản trị kinh doanh. Nền tảng này giúp tôi kết hợp tư duy phân tích, kỹ thuật AI và góc nhìn sản phẩm trong từng bài toán.', statGpa:'GPA Toán – Tin', statProjects:'Dự án AI nổi bật', statDegrees:'Chương trình cử nhân', statDimensions:'Chiều dữ liệu phân tích', educationLabel:'Học vấn & kinh nghiệm', roleConsulting:'Thực tập sinh Tư vấn Phần mềm', consultingText:'Phân tích yêu cầu và quy trình phần mềm cho website doanh nghiệp, landing page và hệ thống quản lý; kết nối nhu cầu kinh doanh với giải pháp kỹ thuật.', present:'NAY', degreeBba:'Cử nhân Quản trị Kinh doanh', neu:'Đại học Kinh tế Quốc dân', neuText:'Quản trị kinh doanh — GPA 3.55/4.00.', degreeCs:'Cử nhân Toán học & Khoa học máy tính', vnuhcm:'ĐH Khoa học Tự nhiên – ĐHQG TP.HCM', vnuhcmText:'Toán học và Khoa học máy tính — GPA 9.14/10.00.', workLabel:'Dự án chọn lọc', projectHeading:'Dự án <span>AI nổi bật</span>', discuss:'Cùng trao đổi', project1:'Trợ lý y tế đa luồng với RAG, giọng nói và bộ nhớ dài hạn.', project2:'Ứng dụng phân tích JD, đối sánh CV và hỗ trợ chuẩn bị phỏng vấn.', project3:'Lập kế hoạch du lịch cá nhân hóa bằng kiến trúc Multi-Agent.', recognitionLabel:'Ghi nhận', recognitionHeading:'Ghi nhận<br>&amp; <span>nền tảng</span>', awardLabel:'Học bổng', award1:'Học bổng Mitsubishi UFJ', award2:'Học bổng Talent Minds Agency', award3:'Học bổng khuyến khích học tập loại xuất sắc — Top 5% toàn khóa, 3 kỳ', coursework:'Học phần liên quan', course1:'Cấu trúc dữ liệu & Giải thuật', course2:'Cơ sở dữ liệu & Lập trình Web', contactEyebrow:'Sẵn sàng cho cơ hội thực tập & hợp tác', contactHeading:'Cùng xây những<br><em>ý tưởng thông minh.</em>', backToTop:'Lên đầu trang ↑' },
-  en: { navAbout:'About', navProjects:'Projects', navRecognition:'Recognition', headerCta:'Let’s talk', availability:'Open to AI & research internships', heroTitle:'Building AI systems<br><em>for real-world problems.</em>', heroDescription:'A final-year Mathematics & Computer Science student at VNUHCM-US, focused on LLMs, RAG, and multi-agent workflows that turn AI into useful, deployable products.', viewProjects:'View projects', scroll:'Scroll to explore', aboutLabel:'About me', aboutHeading:'Bridging quantitative<br><span>thinking and AI.</span>', aboutText:'I am pursuing Mathematics & Computer Science alongside Business Administration. This foundation lets me combine analytical thinking, AI engineering, and product perspective in every problem.', statGpa:'Math & CS GPA', statProjects:'Featured AI projects', statDegrees:'Bachelor programs', statDimensions:'Analysis dimensions', educationLabel:'Education & experience', roleConsulting:'Software Consulting Intern', consultingText:'Analyzed requirements and software workflows for enterprise websites, landing pages, and management systems; connected business needs to technical solutions.', present:'PRESENT', degreeBba:'Bachelor of Business Administration', neu:'National Economics University', neuText:'Business Administration — GPA 3.55/4.00.', degreeCs:'B.S. Mathematics & Computer Science', vnuhcm:'VNUHCM – University of Science', vnuhcmText:'Mathematics & Computer Science — GPA 9.14/10.00.', workLabel:'Selected work', projectHeading:'Featured <span>AI projects</span>', discuss:'Let’s discuss', project1:'A multi-branch healthcare assistant with RAG, voice interaction, and persistent memory.', project2:'An application for JD analysis, CV matching, and interview preparation.', project3:'Personalized travel planning powered by a multi-agent architecture.', recognitionLabel:'Recognition', recognitionHeading:'Awards<br>&amp; <span>foundation</span>', awardLabel:'Scholarship', award1:'Mitsubishi UFJ Scholarship', award2:'Talent Minds Agency Scholarship', award3:'Excellent Academic Encouragement Scholarship — Top 5% of cohort, 3 semesters', coursework:'Relevant coursework', course1:'Data Structures & Algorithms', course2:'Database Systems & Web Programming', contactEyebrow:'Open to internship opportunities & collaborations', contactHeading:'Let’s build<br><em>smart ideas together.</em>', backToTop:'Back to top ↑' }
+  vi: {
+    navAbout: 'Giới thiệu',
+    navProjects: 'Dự án',
+    navRecognition: 'Ghi nhận',
+    headerCta: 'Liên hệ',
+    availability: 'Sẵn sàng cho vị trí AI Engineer & Quant Researcher',
+    heroTitle: 'AI Engineer.<br><em>Tư duy định lượng.</em>',
+    heroDescription: 'Tốt nghiệp kép Toán – Tin (GPA 9.14) và Quản trị Kinh doanh (GPA 3.55) tại VNUHCM-US & NEU. Tôi xây hệ thống AI end-to-end — từ kiến trúc LLM, RAG pipeline, đến Multi-Agent workflows — và đọc được ngôn ngữ của cả dữ liệu lẫn quyết định kinh doanh.',
+    metricGpa: 'GPA Toán – Tin',
+    metricRank: 'Toàn khóa, 3 kỳ',
+    metricProjects: 'Hệ thống AI đã ship',
+    metricDegrees: 'Bằng cử nhân',
+    viewProjects: 'Xem dự án',
+    scroll: 'Khám phá thêm',
+    aboutLabel: 'Về tôi',
+    aboutHeading: 'Nơi toán học<br><span>gặp trí tuệ nhân tạo.</span>',
+    aboutText1: 'Tôi tốt nghiệp song song Toán – Khoa học máy tính và Quản trị Kinh doanh — không phải để ghi thêm bằng cấp, mà để có thể đọc cùng lúc ngôn ngữ của dữ liệu, của thuật toán, và của quyết định kinh doanh.',
+    aboutText2: 'Hướng phát triển của tôi là AI Engineer và Quantitative Researcher: xây hệ thống LLM có kiến trúc rõ ràng, pipeline RAG đáng tin cậy, và Multi-Agent workflows giải quyết bài toán thật — không dừng lại ở demo.',
+    statAgents: 'Agent chuyên biệt — TripMate',
+    statDimensions: 'Chiều phân tích JD tự động',
+    statBba: 'GPA Quản trị KD / 4.00',
+    statLlms: 'LLM platforms tích hợp',
+    educationLabel: 'Học vấn & kinh nghiệm',
+    consultingOrg: 'VinaSoftware Co., Ltd. (VNS)',
+    roleConsulting: 'Software Consulting Intern',
+    consultingText: 'Tham gia tư vấn phần mềm cho enterprise websites, landing pages và business management systems. Phân tích yêu cầu, đặc tả chức năng, và kết nối nhu cầu kinh doanh với giải pháp kỹ thuật trong toàn bộ vòng đời sản phẩm.',
+    present: 'NAY',
+    degreeCs: 'Cử nhân Toán học & Khoa học máy tính',
+    vnuhcm: 'ĐH Khoa học Tự nhiên – ĐHQG TP.HCM',
+    vnuhcmText: 'Nơi giúp tôi phát triển nền tảng toán học và AI vững chắc',
+    vnuhcmCourse1: 'Cấu trúc dữ liệu & Giải thuật',
+    vnuhcmCourse2: 'Cơ sở dữ liệu & Lập trình Web',
+    vnuhcmCourse3: 'Khai thác dữ liệu và ứng dụng',
+    vnuhcmCourse4: 'Machine Learning & Deep Learning',
+    degreeBba: 'Cử nhân Quản trị Kinh doanh',
+    neu: 'Đại học Kinh tế Quốc dân',
+    neuText: 'Góc nhìn kinh doanh giúp tôi định hình sản phẩm AI theo hướng tạo giá trị thực, không chỉ kỹ thuật.',
+    neuCourse1: 'Toán cho các nhà kinh tế',
+    neuCourse2: 'Thống kê trong kinh doanh',
+    neuCourse3: 'Kinh tế vi mô & vĩ mô',
+    neuCourse4: 'Quản trị kinh doanh',
+    workLabel: 'Dự án chọn lọc',
+    projectHeading: 'Dự án <span>AI nổi bật</span>',
+    discuss: 'Cùng trao đổi',
+    project1: 'Trợ lý y tế thông minh dùng LangGraph StateGraph để điều phối đa luồng hội thoại (RAG, Symptom, Planner, Chat). Tích hợp voice TTS, persistent memory bằng vector embeddings, REST API endpoint và evaluation scripts đo latency & độ tin cậy.',
+    project2: 'Pipeline trích xuất 9+ chiều yêu cầu từ JD thô bằng few-shot prompting và schema-guided outputs. Đối sánh CV, tạo hướng dẫn phỏng vấn, soạn cover letter — toàn bộ end-to-end trong Streamlit với hỗ trợ PDF/DOCX/TXT và đa ngôn ngữ.',
+    project3: 'Hệ thống lập kế hoạch du lịch biến natural-language request thành lịch trình cá nhân hóa qua LangGraph workflow. Các agent chuyên biệt xử lý flight search, hotel, itinerary; tích hợp Groq, Tavily, AviationStack API real-time. State được persist trên PostgreSQL (Render).',
+    recognitionLabel: 'Ghi nhận',
+    recognitionHeading: 'Ghi nhận<br>&amp; <span>nền tảng</span>',
+    awardLabel: 'Học bổng',
+    academicLabel: 'Học thuật',
+    award1: 'Mitsubishi UFJ Scholarship',
+    award1sub: 'Ghi nhận thành tích học tập và tiềm năng phát triển',
+    award2: 'Talent Minds Agency Scholarship',
+    award2sub: 'Ghi nhận thái độ học tập và định hướng nghề nghiệp',
+    award3: 'Học bổng Khuyến khích Học tập Xuất sắc',
+    award3sub: 'Top 5% toàn khóa · 3 học kỳ',
+    contactEyebrow: 'AI Engineer · Quant Researcher · Open to opportunities',
+    contactHeading: 'Hãy cùng nhau<br><em>chia sẻ những ý tưởng tuyệt vời.</em>',
+    backToTop: 'Lên đầu trang ↑',
+  },
+  en: {
+    navAbout: 'About',
+    navProjects: 'Projects',
+    navRecognition: 'Recognition',
+    headerCta: "Let's talk",
+    availability: 'Available for AI Engineer & Quant Researcher roles',
+    heroTitle: 'AI Engineer.<br><em>Quantitative mindset.</em>',
+    heroDescription: 'Double-degree graduate in Mathematics & CS (GPA 9.14) and Business Administration (GPA 3.55) from VNUHCM-US & NEU. I build end-to-end AI systems — LLM architecture, RAG pipelines, Multi-Agent workflows — and speak both the language of data and business decisions.',
+    metricGpa: 'Math & CS GPA',
+    metricRank: 'Of cohort, 3 terms',
+    metricProjects: 'AI systems shipped',
+    metricDegrees: 'Bachelor degrees',
+    viewProjects: 'View projects',
+    scroll: 'Scroll to explore',
+    aboutLabel: 'About me',
+    aboutHeading: 'Where mathematics<br><span>meets intelligence.</span>',
+    aboutText1: 'I graduated with a double degree in Mathematics & CS (GPA 9.14/10) and Business Administration — not to stack credentials, but to read the language of data, algorithms, and business decisions simultaneously.',
+    aboutText2: 'My trajectory is AI Engineer and Quantitative Researcher: building LLM systems with clear architecture, reliable RAG pipelines, and Multi-Agent workflows that solve real problems — not just demos.',
+    statAgents: 'Specialized agents — TripMate',
+    statDimensions: 'JD requirement dimensions',
+    statBba: 'Business Admin GPA / 4.00',
+    statLlms: 'LLM platforms integrated',
+    educationLabel: 'Education & experience',
+    consultingOrg: 'VinaSoftware Co., Ltd. (VNS)',
+    roleConsulting: 'Software Consulting Intern',
+    consultingText: 'Participated in software consulting for enterprise websites, landing pages, and business management systems. Analyzed requirements, wrote functional specs, and connected business needs to technical solutions across the full product lifecycle.',
+    present: 'PRESENT',
+    degreeCs: 'B.S. Mathematics & Computer Science',
+    vnuhcm: 'VNUHCM – University of Science',
+    vnuhcmText: 'Where I built a solid foundation in mathematics and AI',
+    vnuhcmCourse1: 'Data Structures & Algorithms',
+    vnuhcmCourse2: 'Database Systems & Web Programming',
+    vnuhcmCourse3: 'Data Mining & Applications',
+    vnuhcmCourse4: 'Machine Learning & Deep Learning',
+    degreeBba: 'Bachelor of Business Administration',
+    neu: 'National Economics University',
+    neuText: 'The business perspective sharpens how I frame AI products toward real value creation, not just technical output.',
+    neuCourse1: 'Mathematics for Economists',
+    neuCourse2: 'Business Statistics',
+    neuCourse3: 'Micro & Macroeconomics',
+    neuCourse4: 'Business Administration',
+    workLabel: 'Selected work',
+    projectHeading: 'Featured <span>AI projects</span>',
+    discuss: "Let's discuss",
+    project1: 'Intelligent healthcare assistant using LangGraph StateGraph to orchestrate multi-branch conversations (RAG, Symptom, Planner, Chat). Integrated voice TTS, persistent memory via vector embeddings, REST API endpoints, and evaluation scripts measuring latency and reliability.',
+    project2: 'Pipeline extracting 9+ requirement dimensions from raw JDs using few-shot prompting and schema-guided outputs. CV matching, interview guidance, cover letter drafting — fully end-to-end in Streamlit with PDF/DOCX/TXT support and multilingual reporting.',
+    project3: 'Travel planning system that transforms natural-language requests into personalized itineraries via LangGraph workflow. Specialized agents handle flight search, hotels, and itinerary planning, integrating Groq, Tavily, and AviationStack APIs. State persisted on PostgreSQL (Render).',
+    recognitionLabel: 'Recognition',
+    recognitionHeading: 'Awards<br>&amp; <span>foundation</span>',
+    awardLabel: 'Scholarship',
+    academicLabel: 'Academic',
+    award1: 'Mitsubishi UFJ Scholarship',
+    award1sub: 'Recognized for academic performance and development potential',
+    award2: 'Talent Minds Agency Scholarship',
+    award2sub: 'Recognized for learning attitude and career orientation',
+    award3: 'Excellent Academic Encouragement Scholarship',
+    award3sub: 'Top 5% of cohort · 3 semesters',
+    contactEyebrow: 'AI Engineer · Quant Researcher · Open to opportunities',
+    contactHeading: "Let's connect and<br><em>share great ideas together.</em>",
+    backToTop: 'Back to top ↑',
+  },
 };
 
-window.addEventListener('pointermove', (event) => { glow.style.left = `${event.clientX}px`; glow.style.top = `${event.clientY}px`; });
-
-function setLanguage(language) {
-  document.documentElement.lang = language;
-  document.querySelectorAll('[data-i18n]').forEach((element) => { element.textContent = translations[language][element.dataset.i18n]; });
-  document.querySelectorAll('[data-i18n-html]').forEach((element) => { element.innerHTML = translations[language][element.dataset.i18nHtml]; });
-  document.querySelectorAll('.lang-btn').forEach((button) => button.classList.toggle('active', button.dataset.lang === language));
-  localStorage.setItem('portfolio-language', language);
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.dataset.i18n;
+    if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const key = el.dataset.i18nHtml;
+    if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+  });
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+  localStorage.setItem('portfolio-lang', lang);
 }
 
-document.querySelectorAll('.lang-btn').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
-setLanguage(localStorage.getItem('portfolio-language') || 'vi');
+document.querySelectorAll('.lang-btn').forEach((btn) =>
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang))
+);
+setLanguage(localStorage.getItem('portfolio-lang') || 'vi');
 
-const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+// ---- Cursor glow ----
+const cursorGlow = document.getElementById('cursorGlow');
+if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+  window.addEventListener('pointermove', (e) => {
+    cursorGlow.style.left = `${e.clientX}px`;
+    cursorGlow.style.top = `${e.clientY}px`;
+  }, { passive: true });
+}
+
+// ---- Navigation scroll state ----
+const nav = document.getElementById('nav');
+const onScroll = () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ---- Reveal on scroll ----
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+);
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+// ---- Back to top ----
+document.getElementById('backToTop')?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ---- Canvas background: mathematical grid + particles ----
+(function initCanvas() {
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let W, H, particles, animId;
+  const GRID = 60;
+  const PARTICLE_COUNT = 55;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function makeParticle() {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: Math.random() * 1.5 + 0.5,
+      alpha: Math.random() * 0.5 + 0.1,
+    };
+  }
+
+  function initParticles() {
+    particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
+  }
+
+  function drawGrid() {
+    ctx.strokeStyle = 'rgba(0,212,170,0.035)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x <= W; x += GRID) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y <= H; y += GRID) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+    // Accent dots at grid intersections (sparse)
+    ctx.fillStyle = 'rgba(0,212,170,0.08)';
+    for (let x = 0; x <= W; x += GRID * 3) {
+      for (let y = 0; y <= H; y += GRID * 3) {
+        ctx.beginPath();
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  function drawParticles() {
+    particles.forEach((p) => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,212,170,${p.alpha})`;
+      ctx.fill();
+    });
+  }
+
+  function drawConnections() {
+    const MAX_DIST = 140;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.12;
+          ctx.strokeStyle = `rgba(0,212,170,${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function update() {
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10;
+      if (p.y > H + 10) p.y = -10;
+    });
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, W, H);
+    drawGrid();
+    if (!reduced) {
+      drawConnections();
+      drawParticles();
+      update();
+    } else {
+      drawParticles();
+    }
+    animId = requestAnimationFrame(render);
+  }
+
+  resize();
+  initParticles();
+  render();
+
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(animId);
+    resize();
+    initParticles();
+    render();
+  }, { passive: true });
+})();
