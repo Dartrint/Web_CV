@@ -14,9 +14,10 @@ const translations = {
     heroDescription: 'Tốt nghiệp kép Toán – Tin (GPA 9.14) và Quản trị Kinh doanh (GPA 3.55) tại VNUHCM-US & NEU. Tôi xây hệ thống AI end-to-end — từ kiến trúc LLM, RAG pipeline, đến Multi-Agent workflows — và đọc được ngôn ngữ của cả dữ liệu lẫn quyết định kinh doanh.',
     metricGpa: 'GPA Toán – Tin',
     metricRank: 'Toàn khóa, 3 kỳ',
-    metricProjects: 'Hệ thống AI đã ship',
+    metricProjects: 'Hệ thống AI & Định lượng đã ship',
     metricDegrees: 'Bằng cử nhân',
     viewProjects: 'Xem dự án',
+    viewMore: 'Xem thêm dự án',
     scroll: 'Khám phá thêm',
     aboutLabel: 'Về tôi',
     aboutHeading: 'Nơi toán học<br><span>gặp trí tuệ nhân tạo.</span>',
@@ -46,11 +47,16 @@ const translations = {
     neuCourse3: 'Kinh tế vi mô & vĩ mô',
     neuCourse4: 'Quản trị kinh doanh',
     workLabel: 'Dự án chọn lọc',
-    projectHeading: 'Dự án <span>AI nổi bật</span>',
+    projectHeading: 'Dự án <span>AI & Định lượng</span>',
+    catQuant: 'Quantitative Research',
     discuss: 'Cùng trao đổi',
     project1: 'Trợ lý y tế thông minh dùng LangGraph StateGraph để điều phối đa luồng hội thoại (RAG, Symptom, Planner, Chat). Tích hợp voice TTS, persistent memory bằng vector embeddings, REST API endpoint và evaluation scripts đo latency & độ tin cậy.',
     project2: 'Pipeline trích xuất 9+ chiều yêu cầu từ JD thô bằng few-shot prompting và schema-guided outputs. Đối sánh CV, tạo hướng dẫn phỏng vấn, soạn cover letter — toàn bộ end-to-end trong Streamlit với hỗ trợ PDF/DOCX/TXT và đa ngôn ngữ.',
     project3: 'Hệ thống lập kế hoạch du lịch biến natural-language request thành lịch trình cá nhân hóa qua LangGraph workflow. Các agent chuyên biệt xử lý flight search, hotel, itinerary; tích hợp Groq, Tavily, AviationStack API real-time. State được persist trên PostgreSQL (Render).',
+    project4: 'Framework backtest chiến lược Golden/Death Cross với vectorized engine, transaction cost modeling, walk-forward validation, và sensitivity analysis. Pipeline từ raw OHLCV → signals → Sharpe, CAGR, Max Drawdown → dashboard Streamlit trực quan từng regime.',
+    project5: 'Trợ lý tài chính song ngữ với hybrid architecture: 3 đường xử lý (Market Data real-time, Knowledge RAG, Combined analysis). Query router tự động phân luồng khái niệm / dữ liệu số / phân tích tổng hợp. ETL pipeline nạp báo cáo tài chính, tích hợp vnstock · Yahoo Finance · EcoData macro.',
+    project6: 'Pipeline end-to-end phát hiện anomaly trên dữ liệu sensor bán dẫn (UCI SECOM) — bài toán unsupervised áp dụng cho risk / fraud detection. So sánh Isolation Forest, One-Class SVM, Autoencoder PyTorch. SHAP giải thích feature nào đẩy điểm vào vùng bất thường.',
+    viewMore: 'Xem thêm dự án',
     recognitionLabel: 'Ghi nhận',
     recognitionHeading: 'Ghi nhận<br>&amp; <span>nền tảng</span>',
     awardLabel: 'Học bổng',
@@ -75,9 +81,10 @@ const translations = {
     heroDescription: 'Double-degree graduate in Mathematics & CS (GPA 9.14) and Business Administration (GPA 3.55) from VNUHCM-US & NEU. I build end-to-end AI systems — LLM architecture, RAG pipelines, Multi-Agent workflows — and speak both the language of data and business decisions.',
     metricGpa: 'Math & CS GPA',
     metricRank: 'Of cohort, 3 terms',
-    metricProjects: 'AI systems shipped',
+    metricProjects: 'AI & Quant systems shipped',
     metricDegrees: 'Bachelor degrees',
     viewProjects: 'View projects',
+    viewMore: 'View all projects',
     scroll: 'Scroll to explore',
     aboutLabel: 'About me',
     aboutHeading: 'Where mathematics<br><span>meets intelligence.</span>',
@@ -107,11 +114,16 @@ const translations = {
     neuCourse3: 'Micro & Macroeconomics',
     neuCourse4: 'Business Administration',
     workLabel: 'Selected work',
-    projectHeading: 'Featured <span>AI projects</span>',
+    projectHeading: 'Featured <span>AI & Quant projects</span>',
+    catQuant: 'Quantitative Research',
     discuss: "Let's discuss",
     project1: 'Intelligent healthcare assistant using LangGraph StateGraph to orchestrate multi-branch conversations (RAG, Symptom, Planner, Chat). Integrated voice TTS, persistent memory via vector embeddings, REST API endpoints, and evaluation scripts measuring latency and reliability.',
     project2: 'Pipeline extracting 9+ requirement dimensions from raw JDs using few-shot prompting and schema-guided outputs. CV matching, interview guidance, cover letter drafting — fully end-to-end in Streamlit with PDF/DOCX/TXT support and multilingual reporting.',
     project3: 'Travel planning system that transforms natural-language requests into personalized itineraries via LangGraph workflow. Specialized agents handle flight search, hotels, and itinerary planning, integrating Groq, Tavily, and AviationStack APIs. State persisted on PostgreSQL (Render).',
+    project4: 'Backtesting framework for Golden/Death Cross strategies with a vectorized engine, transaction cost modeling, walk-forward validation, and sensitivity analysis. Full pipeline from raw OHLCV → signals → Sharpe, CAGR, Max Drawdown → Streamlit dashboard by market regime.',
+    project5: 'Bilingual financial assistant with hybrid architecture: 3 processing paths (real-time Market Data, Knowledge RAG, Combined analysis). Query router auto-routes concept / numeric / synthesis requests. ETL pipeline ingests financial reports, structured citations, vnstock · Yahoo Finance · EcoData macro.',
+    project6: 'End-to-end anomaly detection pipeline on semiconductor sensor data (UCI SECOM) — an unsupervised approach applicable to risk and fraud detection in finance. Compares Isolation Forest, One-Class SVM, and PyTorch Autoencoder. SHAP explains which features push a sample into the anomaly region.',
+    viewMore: 'View all projects',
     recognitionLabel: 'Recognition',
     recognitionHeading: 'Awards<br>&amp; <span>foundation</span>',
     awardLabel: 'Scholarship',
@@ -302,4 +314,111 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     initParticles();
     render();
   }, { passive: true });
+})();
+
+// ---- Projects carousel ----
+(function initCarousel() {
+  const carousel = document.getElementById('projectsCarousel');
+  const track = document.getElementById('projectsTrack');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsContainer = document.getElementById('carouselDots');
+  const viewMoreBtn = document.getElementById('viewMoreBtn');
+
+  if (!carousel || !track) return;
+
+  const cards = Array.from(track.children);
+  let currentIndex = 0;
+  let autoPlayTimer = null;
+  let isExpanded = false;
+  const AUTO_INTERVAL = 3800;
+
+  // ---- dots ----
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-selected', String(i === 0));
+    dot.setAttribute('aria-label', 'Dự án ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = () => dotsContainer.querySelectorAll('.carousel-dot');
+
+  function getCardWidth() {
+    const card = cards[0];
+    if (!card) return 320;
+    return card.getBoundingClientRect().width + 24; // width + gap
+  }
+
+  function updateTrack() {
+    if (isExpanded) return;
+    track.style.transform = `translateX(${-currentIndex * getCardWidth()}px)`;
+    dots().forEach((d, i) => {
+      d.classList.toggle('active', i === currentIndex);
+      d.setAttribute('aria-selected', String(i === currentIndex));
+    });
+  }
+
+  function goTo(index) {
+    currentIndex = ((index % cards.length) + cards.length) % cards.length;
+    updateTrack();
+  }
+
+  function next() { goTo(currentIndex + 1); }
+  function prev() { goTo(currentIndex - 1); }
+
+  function startAuto() {
+    stopAuto();
+    autoPlayTimer = setInterval(next, AUTO_INTERVAL);
+  }
+
+  function stopAuto() {
+    clearInterval(autoPlayTimer);
+  }
+
+  prevBtn?.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+  nextBtn?.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+  // pause on hover
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', () => { if (!isExpanded) startAuto(); });
+
+  // touch/swipe support
+  let touchStartX = 0;
+  carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+  }, { passive: true });
+
+  // view more / collapse
+  viewMoreBtn?.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    carousel.classList.toggle('expanded', isExpanded);
+    viewMoreBtn.classList.toggle('active', isExpanded);
+
+    const textEl = viewMoreBtn.querySelector('.view-more-text');
+    if (textEl) {
+      const lang = localStorage.getItem('portfolio-lang') || 'vi';
+      textEl.textContent = isExpanded
+        ? (lang === 'vi' ? 'Thu gọn' : 'Collapse')
+        : (lang === 'vi' ? 'Xem thêm dự án' : 'View all projects');
+    }
+
+    if (isExpanded) {
+      stopAuto();
+      track.style.transform = '';
+    } else {
+      updateTrack();
+      startAuto();
+    }
+  });
+
+  // recalc on resize
+  window.addEventListener('resize', () => { if (!isExpanded) updateTrack(); }, { passive: true });
+
+  updateTrack();
+  startAuto();
 })();

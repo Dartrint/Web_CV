@@ -749,19 +749,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ============================================
-   PROJECTS
-   ============================================ */
+    PROJECTS
+    ============================================ */
 .projects {
   border-top: 1px solid var(--border);
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+.projects-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.projects-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .project-card {
+  flex: 0 0 320px;
+  max-width: 320px;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -781,6 +790,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   aspect-ratio: 16/9;
   overflow: hidden;
   background: var(--bg-0);
+  flex-shrink: 0;
 }
 .project-image img {
   width: 100%;
@@ -874,6 +884,177 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--text-2);
   font-style: italic;
   letter-spacing: 0.01em;
+}
+
+/* ---- Carousel navigation ---- */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.carousel-btn:hover {
+  color: var(--accent);
+  border-color: rgba(0, 212, 170, 0.4);
+  background: var(--accent-dim);
+}
+.carousel-btn:focus-visible { outline-color: var(--accent); }
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--dur-fast);
+}
+.carousel-dot:hover {
+  background: var(--text-2);
+}
+.carousel-dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 212, 170, 0.5);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ---- View more button ---- */
+.btn-view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 24px;
+  margin: var(--space-5) auto 0;
+  background: transparent;
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--border-mid);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.btn-view-more:hover {
+  color: var(--accent);
+  border-color: rgba(0, 212, 170, 0.4);
+  background: var(--accent-dim);
+}
+.btn-view-more:focus-visible { outline-color: var(--accent); }
+.btn-view-more .view-more-icon {
+  transition: transform var(--dur-med) var(--ease-out);
+}
+.btn-view-more.active .view-more-icon {
+  transform: rotate(180deg);
+}
+
+/* ---- Expanded state: show all cards in grid ---- */
+.projects-carousel.expanded .projects-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  transform: none !important;
+  gap: 24px;
+}
+.projects-carousel.expanded .projects-track .project-card {
+  flex: 1 1 0;
+  max-width: none;
+}
+.projects-carousel.expanded .carousel-nav {
+  display: none;
+}
+
+/* Quantitative project variant */
+.project-card--quant {
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-1) 100%);
+  border-color: rgba(124, 109, 250, 0.18);
+}
+.project-card--quant:hover {
+  border-color: rgba(124, 109, 250, 0.45);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(124, 109, 250, 0.08);
+}
+.project-card--quant::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
+}
+.project-card--quant .project-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.project-card--quant .project-title::before {
+  content: 'ƒ';
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--violet);
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(124, 109, 250, 0.4);
+  border-radius: 4px;
+  background: var(--violet-dim);
+  flex-shrink: 0;
+}
+
+.project-image--quant {
+  background: var(--bg-0);
+}
+.project-image--quant svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.project-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+  background: var(--violet-dim);
+  border: 1px solid rgba(124, 109, 250, 0.25);
+  border-radius: 3px;
+}
+.project-category::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 6px var(--violet);
 }
 
 /* ============================================
@@ -1065,11 +1246,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    RESPONSIVE
    ============================================ */
 @media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-carousel.expanded .projects-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-track { gap: 20px; }
+  .project-card { flex: 0 0 300px; max-width: 300px; }
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
+  .projects-carousel.expanded .projects-track {
+    grid-template-columns: 1fr;
+  }
   .section { padding: var(--space-9) 0; }
 
   .nav-inner { padding: 0 var(--space-5); height: 56px; }
@@ -1081,7 +1269,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .about-grid { grid-template-columns: 1fr; gap: var(--space-7); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
 
-  .projects-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .projects-track { gap: 20px; }
+  .project-card { flex: 0 0 100%; max-width: 100%; }
+  .projects-grid { grid-template-columns: 1fr; }
   .awards-grid { grid-template-columns: 1fr; gap: var(--space-3); }
 
   .contact-links { flex-direction: column; align-items: center; }
