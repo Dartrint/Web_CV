@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="vi" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=index.html#about" />
+    <meta name="description" content="Hành trình làm việc của Trần Thành Đạt — từ câu hỏi đến hệ thống AI có ích." />
+    <title>Hành trình — Trần Thành Đạt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="journey-body">
+    <!--
+      THESIS: Trang Hành trình làm người xem muốn hiểu cách một câu hỏi trở thành hệ thống có ích.
+      OWN-WORLD: Sân khấu đêm, đường chân trời dữ liệu và các lớp nội dung mở ra theo nhịp chọn của người xem.
+      STORY: Người xem chọn một trong ba lớp, nhìn thấy bằng chứng thật, rồi bước vào một cuộc trao đổi.
+      FIRST VIEWPORT: Tiêu đề lớn bên trái, bản đồ ba lớp bên phải và CTA rõ ràng ở cuối nhịp mở màn.
+      FORM: Experience / interactive story chapter.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html" aria-label="Trần Thành Đạt — trang chủ">
+          <span class="logo-bracket" aria-hidden="true">[</span>
+          <span class="logo-text">TTĐ</span>
+          <span class="logo-bracket" aria-hidden="true">]</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a class="nav-link" href="index.html#about" data-i18n="navAbout">Giới thiệu</a></li>
+          <li><a class="nav-link" href="index.html#projects" data-i18n="navProjects">Dự án</a></li>
+          <li><a class="nav-link active" href="journey.html" data-i18n="navJourney">Hành trình</a></li>
+          <li><a class="nav-link" href="index.html#recognition" data-i18n="navRecognition">Dấu ấn</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="language-switcher" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="vi" aria-pressed="true">VI</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="btn-primary" href="mailto:tranthanhdat.hvt@gmail.com" aria-label="Liên hệ qua email">
+            <span data-i18n="headerCta">Kết nối</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="journey-hero" aria-labelledby="journeyHeading">
+        <div class="journey-hero-inner">
+          <div class="journey-hero-copy reveal">
+            <p class="journey-label" data-i18n="journeyLabel">Một hành trình được xây từ những câu hỏi</p>
+            <h1 class="journey-title" id="journeyHeading" data-i18n-html="journeyTitle">Từ một câu hỏi<br><em>đến điều có ích.</em></h1>
+            <p class="journey-description" data-i18n="journeyDescription">Từ điều cần được làm rõ, đến hệ thống có thể tin cậy, rồi một trải nghiệm đủ gần để tạo ra thay đổi.</p>
+            <a class="btn-primary" href="#layers">
+              <span data-i18n="journeyCta">Bắt đầu từ câu hỏi</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+          </div>
+          <div class="journey-map reveal" aria-hidden="true">
+            <div class="map-route"></div>
+            <div class="map-node map-node--one"><span>01</span><strong>ASK</strong></div>
+            <div class="map-node map-node--two"><span>02</span><strong>IDEA</strong></div>
+            <div class="map-node map-node--three"><span>03</span><strong>BUILD</strong></div>
+            <div class="map-node map-node--four"><span>04</span><strong>SHIP</strong></div>
+            <div class="map-node map-node--five"><span>05</span><strong>IMPACT</strong></div>
+            <div class="map-caption">QUESTION → IDEA → BUILD → PRODUCT → MARK</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey-intro section" aria-labelledby="journeyIntroHeading">
+        <div class="container journey-intro-grid">
+          <div class="section-label reveal"><span class="label-num">01</span><span data-i18n="journeyIntroLabel">Điểm bắt đầu</span></div>
+          <div class="journey-intro-copy">
+            <h2 class="section-heading reveal" id="journeyIntroHeading" data-i18n-html="journeyIntroTitle">Tôi xây hệ thống<br><span>như kể một câu chuyện.</span></h2>
+            <p class="about-para reveal" data-i18n="journeyIntroText">Mỗi dự án bắt đầu bằng một điểm mơ hồ. Tôi tách nó thành những phần có thể quan sát, xây từng lớp có chủ đích và chỉ gọi là hoàn thành khi người dùng hiểu được điều hệ thống đang làm.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey-layers section" id="layers" aria-labelledby="layersHeading">
+        <div class="container">
+          <div class="section-label reveal"><span class="label-num">02</span><span data-i18n="journeyLayersLabel">Năm chặng của một lời giải</span></div>
+          <h2 class="section-heading reveal" id="layersHeading" data-i18n-html="journeyLayersTitle">Đi từng bước.<br><span>Thấy ý tưởng thành hình.</span></h2>
+          <div class="layer-controls reveal" role="tablist" aria-label="Năm chặng của hành trình">
+            <button class="layer-tab active" type="button" role="tab" aria-selected="true" data-layer="0"><span>01</span><strong data-i18n="journeyStep1Title">Đặt câu hỏi</strong></button>
+            <button class="layer-tab" type="button" role="tab" aria-selected="false" data-layer="1"><span>02</span><strong data-i18n="journeyStep2Title">Nảy ý tưởng</strong></button>
+            <button class="layer-tab" type="button" role="tab" aria-selected="false" data-layer="2"><span>03</span><strong data-i18n="journeyStep3Title">Xây dựng</strong></button>
+            <button class="layer-tab" type="button" role="tab" aria-selected="false" data-layer="3"><span>04</span><strong data-i18n="journeyStep4Title">Sản phẩm thành hình</strong></button>
+            <button class="layer-tab" type="button" role="tab" aria-selected="false" data-layer="4"><span>05</span><strong data-i18n="journeyStep5Title">Dấu ấn</strong></button>
+          </div>
+          <div class="layer-panels reveal">
+            <article class="layer-panel active" data-layer-panel="0" role="tabpanel">
+              <span class="layer-panel-mark">?</span><div><h3 data-i18n="journeyStep1Title">Đặt câu hỏi</h3><p data-i18n="journeyStep1Body">Không vội chọn mô hình. Tôi bắt đầu bằng việc lắng nghe bối cảnh, gọi đúng tên vấn đề và tìm tín hiệu đáng tin giữa rất nhiều dữ liệu.</p><div class="layer-tech" data-i18n="journeyStep1Tech">Quan sát · dữ liệu · tư duy định lượng</div></div>
+            </article>
+            <article class="layer-panel" data-layer-panel="1" role="tabpanel" hidden>
+              <span class="layer-panel-mark">✦</span><div><h3 data-i18n="journeyStep2Title">Nảy ý tưởng</h3><p data-i18n="journeyStep2Body">Tôi biến điều còn mơ hồ thành một hướng đi có thể thử: một giả thuyết, một luồng trải nghiệm và một cách đo xem nó có đáng để tiếp tục hay không.</p><div class="layer-tech" data-i18n="journeyStep2Tech">Product thinking · research · prompt design</div></div>
+            </article>
+            <article class="layer-panel" data-layer-panel="2" role="tabpanel" hidden>
+              <span class="layer-panel-mark">∑</span><div><h3 data-i18n="journeyStep3Title">Xây dựng</h3><p data-i18n="journeyStep3Body">Một ý tưởng tốt cần một cấu trúc tốt: luồng xử lý rõ ràng, bộ nhớ đúng chỗ, API có thể kiểm thử và những giới hạn được nói thẳng.</p><div class="layer-tech" data-i18n="journeyStep3Tech">Python · LangGraph · FastAPI · PostgreSQL</div></div>
+            </article>
+            <article class="layer-panel" data-layer-panel="3" role="tabpanel" hidden>
+              <span class="layer-panel-mark">↗</span><div><h3 data-i18n="journeyStep4Title">Sản phẩm thành hình</h3><p data-i18n="journeyStep4Body">Khi các mảnh ghép kết nối, hệ thống bắt đầu trả lời được câu hỏi ban đầu. Tôi kiểm thử, tinh chỉnh và đưa nó đến gần hơn với một trải nghiệm thật.</p><div class="layer-tech" data-i18n="journeyStep4Tech">RAG · Multi-Agent · Streamlit · evaluation</div></div>
+            </article>
+            <article class="layer-panel" data-layer-panel="4" role="tabpanel" hidden>
+              <span class="layer-panel-mark">◎</span><div><h3 data-i18n="journeyStep5Title">Dấu ấn</h3><p data-i18n="journeyStep5Body">Điều còn lại không chỉ là một demo. Đó là một sản phẩm có thể giải thích, một kết quả có thể kiểm chứng và một bài học để bước tiếp.</p><div class="layer-tech" data-i18n="journeyStep5Tech">GPA 9.14 · Top 5% · học bổng · 6 dự án</div></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey-proof section" aria-labelledby="proofHeading">
+        <div class="container">
+          <div class="section-label reveal"><span class="label-num">03</span><span data-i18n="journeyProofLabel">Những lát cắt có thật</span></div>
+          <h2 class="section-heading reveal" id="proofHeading" data-i18n-html="journeyProofTitle">Ba hệ thống.<br><span>Ba cách biến câu hỏi thành hình hài.</span></h2>
+          <div class="proof-grid">
+            <article class="proof-card reveal">
+              <div class="proof-card-image"><img src="assets/healthcare-chatbot.svg" alt="Healthcare AI Chatbot" loading="lazy" /></div>
+              <div class="proof-card-body"><span class="proof-index">01</span><h3 data-i18n="journeyProof1Title">Khi dữ liệu cần một giọng nói</h3><p data-i18n="journeyProof1Body">Healthcare AI Chatbot nối tri thức, triệu chứng và hội thoại trong một trợ lý có bộ nhớ dài hạn.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="proof-card reveal">
+              <div class="proof-card-image"><img src="assets/jd-agent.svg" alt="JD Intelligence Agent" loading="lazy" /></div>
+              <div class="proof-card-body"><span class="proof-index">02</span><h3 data-i18n="journeyProof2Title">Khi một JD cần được đọc kỹ</h3><p data-i18n="journeyProof2Body">JD Intelligence Agent biến mô tả tuyển dụng thô thành bản đồ yêu cầu, câu hỏi phỏng vấn và bước chuẩn bị cụ thể.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+            </article>
+            <article class="proof-card reveal">
+              <div class="proof-card-image"><img src="assets/tripmate-ai.svg" alt="TripMate Route AI" loading="lazy" /></div>
+              <div class="proof-card-body"><span class="proof-index">03</span><h3 data-i18n="journeyProof3Title">Khi một chuyến đi cần có nhịp riêng</h3><p data-i18n="journeyProof3Body">TripMate phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey-end section" aria-labelledby="journeyEndHeading">
+        <div class="container">
+          <div class="journey-end-inner reveal">
+            <p class="journey-label" data-i18n="journeyEndLabel">04 · CÂU HỎI TIẾP THEO</p>
+            <h2 class="contact-heading" id="journeyEndHeading" data-i18n-html="journeyEndTitle">Bạn đang đứng trước<br><em>câu hỏi nào?</em></h2>
+            <p class="journey-end-text" data-i18n="journeyEndText">Nếu bài toán đủ thú vị, tôi muốn cùng bạn đi qua cả ba lớp: hiểu đúng, xây chắc và tạo ra điều có ích.</p>
+            <a class="btn-primary btn-large" href="mailto:tranthanhdat.hvt@gmail.com">tranthanhdat.hvt@gmail.com <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container footer-inner">
+        <p class="footer-copy">© 2026 Trần Thành Đạt</p>
+        <nav class="footer-links" aria-label="Social links">
+          <a href="mailto:tranthanhdat.hvt@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/%C4%91%E1%BA%A1t-tr%E1%BA%A7n-958337251" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/Dartrint" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        <a class="back-to-top" href="#top" aria-label="Lên đầu trang">↑ <span data-i18n="backToTop">Về đầu trang ↑</span></a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

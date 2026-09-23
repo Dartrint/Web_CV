@@ -5,138 +5,358 @@
 // ---- i18n ----
 const translations = {
   vi: {
-    navAbout: 'Giới thiệu',
+    navAbout: 'Về tôi',
     navProjects: 'Dự án',
-    navRecognition: 'Ghi nhận',
-    headerCta: 'Liên hệ',
-    availability: 'Sẵn sàng cho vị trí AI Engineer & Quant Researcher',
-    heroTitle: 'AI Engineer.<br><em>Tư duy định lượng.</em>',
-    heroDescription: 'Tốt nghiệp kép Toán – Tin (GPA 9.14) và Quản trị Kinh doanh (GPA 3.55) tại VNUHCM-US & NEU. Tôi xây hệ thống AI end-to-end — từ kiến trúc LLM, RAG pipeline, đến Multi-Agent workflows — và đọc được ngôn ngữ của cả dữ liệu lẫn quyết định kinh doanh.',
-    metricGpa: 'GPA Toán – Tin',
-    metricRank: 'Toàn khóa, 3 kỳ',
-    metricProjects: 'Hệ thống AI & Định lượng đã ship',
-    metricDegrees: 'Bằng cử nhân',
+    navJourney: 'Câu chuyện',
+    navRecognition: "Dấu ấn",
+    lightMode: "Light",
+    lightNavAbout: "Về tôi",
+    lightNavProjects: "Dự án",
+    lightNavEducation: "Học vấn",
+    lightKicker: "AI Engineer · Quantitative Researcher",
+    lightHeroTitle: "Tôi biến những câu hỏi khó thành <em>hệ thống có ích.</em>",
+    lightHeroLead: "Tôi kết hợp tư duy Toán – Tin, nền tảng AI và góc nhìn kinh doanh để đọc vấn đề từ nhiều phía, rồi xây lời giải đủ rõ ràng để người khác có thể sử dụng.",
+    lightHeroCta: "Xem những gì tôi xây",
+    lightDarkLink: "Xem bản tối",
+    lightStoryLabel: "Cách tôi làm việc",
+    lightStoryTitle: "Không bắt đầu từ công nghệ.<br><em>Bắt đầu từ con người.</em>",
+    lightStoryBody: "Tôi thường bắt đầu ở nơi mọi thứ còn chưa rõ tên. Tôi lắng nghe bối cảnh, tìm cấu trúc bên dưới dữ liệu và đặt lại câu hỏi cho đúng trước khi nghĩ đến lời giải.",
+    lightWorkLabel: "Những gì đã thành hình",
+    lightWorkTitle: "Ý tưởng chỉ thật sự sống<br><em>khi có người dùng nó.</em>",
+    lightWorkBody: "Ba lát cắt từ hành trình xây hệ thống AI và định lượng.",
+    lightProject1: "Trợ lý y tế kết nối tri thức, triệu chứng và hội thoại trong một hệ thống có bộ nhớ dài hạn.",
+    lightProject2: "Đọc JD, bóc tách yêu cầu và biến chúng thành những bước chuẩn bị cụ thể hơn.",
+    lightProject3: "Phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.",
+    lightProject4: "Kiểm thử chiến lược Golden/Death Cross từ dữ liệu OHLCV đến Sharpe, CAGR và Max Drawdown.",
+    lightProject5: "Trợ lý tài chính song ngữ kết hợp dữ liệu thị trường, Knowledge RAG và phân tích tổng hợp.",
+    lightProject6: "Phát hiện bất thường trên dữ liệu cảm biến bằng Isolation Forest, One-Class SVM, Autoencoder và SHAP.",
+    lightGithub: "Xem GitHub ↗",
+    lightViewMore: "Xem thêm dự án",
+    lightCollapse: "Thu gọn dự án",
+    lightEducationLabel: "Nền tảng phía sau",
+    lightThemeDark: "Dark",
+    lightContact: "Kết nối",
+    lightQuestion: "“Điều gì đang thực sự cần được làm rõ?”",
+    lightQuestionCaption: "Từ đó, câu chuyện bắt đầu.",
+    lightPath1: "Hỏi đúng",
+    lightPath1Detail: "Nhìn thấy điều đáng giải",
+    lightPath2: "Nảy ý tưởng",
+    lightPath2Detail: "Biến điều mơ hồ thành hướng đi",
+    lightPath3: "Xây chắc",
+    lightPath3Detail: "Để ý tưởng chạy được",
+    lightPath4: "Thành hình",
+    lightPath4Detail: "Đưa hệ thống đến gần người dùng",
+    lightPath5: "Để lại dấu ấn",
+    lightPath5Detail: "Để công nghệ chạm vào đời sống",
+    lightEducationTitle: "Hai lăng kính.<br><em>Một cách nhìn rộng hơn.</em>",
+    lightEducationBody: "Toán – Tin cho tôi cấu trúc. Quản trị Kinh doanh cho tôi bối cảnh. Cả hai cùng giúp tôi xây những sản phẩm AI không chỉ đúng về kỹ thuật mà còn có lý do để tồn tại.",
+    lightGpaMath: "GPA Toán – Tin / 10.00",
+    lightGpaBusiness: "GPA Quản trị Kinh doanh / 4.00",
+    lightRank: "Toàn khóa · 3 học kỳ",
+    lightExpBody: "Phân tích yêu cầu, làm rõ đặc tả và kết nối nhu cầu kinh doanh với giải pháp kỹ thuật.",
+    lightDegreeMath: "Cử nhân Toán học & Khoa học máy tính",
+    lightSchoolMath: "ĐH Khoa học Tự nhiên – ĐHQG TP.HCM · GPA 9.14 / 10.00",
+    lightDegreeMathBody: "Nền tảng về toán học, cấu trúc dữ liệu, khai thác dữ liệu, Machine Learning và Deep Learning.",
+    lightPresent: "hiện tại",
+    lightDegreeBusiness: "Cử nhân Quản trị Kinh doanh",
+    lightSchoolBusiness: "Đại học Kinh tế Quốc dân · GPA 3.55 / 4.00",
+    lightDegreeBusinessBody: "Góc nhìn kinh doanh giúp tôi đặt công nghệ vào đúng bối cảnh và tạo ra giá trị thực.",
+    lightCloseTitle: "Bạn đang đứng trước<br><em>câu hỏi nào?</em>",
+    lightCloseCta: "Cùng bắt đầu một cuộc trao đổi ↗",
+    lightFullCv: "Bản CV đầy đủ ↗",
+    progressAbout: "Về tôi",
+    progressProjects: "Những gì tôi xây",
+    progressRecognition: "Điều còn lại",
+    headerCta: "Kết nối",
+    availability: "Sẵn sàng cho những bài toán AI đáng để giải",
+    heroTitle: "Mỗi bài toán<br><em>bắt đầu từ một câu hỏi.</em>",
+    heroDescription: "Tôi kết hợp tư duy toán học, nền tảng AI và góc nhìn kinh doanh để biến những câu hỏi còn bỏ ngỏ thành hệ thống có thể dùng được.",
+    storyQuestion: 'Đặt câu hỏi',
+    storyQuestionDetail: 'Nhìn thấy điều đáng giải',
+    storyIdea: 'Nảy ý tưởng',
+    storyIdeaDetail: 'Biến điều mơ hồ thành hướng đi',
+    storyBuild: 'Xây dựng',
+    storyBuildDetail: 'Để ý tưởng chạy được',
+    storyProduct: 'Thành hình',
+    storyProductDetail: 'Đưa hệ thống đến gần người dùng',
+    storyImpact: 'Để lại dấu ấn',
+    storyImpactDetail: 'Để công nghệ chạm vào đời sống',
     viewProjects: 'Xem dự án',
-    viewMore: 'Xem thêm dự án',
-    scroll: 'Khám phá thêm',
-    aboutLabel: 'Về tôi',
-    aboutHeading: 'Nơi toán học<br><span>gặp trí tuệ nhân tạo.</span>',
-    aboutText1: 'Tôi tốt nghiệp song song Toán – Khoa học máy tính và Quản trị Kinh doanh — không phải để ghi thêm bằng cấp, mà để có thể đọc cùng lúc ngôn ngữ của dữ liệu, của thuật toán, và của quyết định kinh doanh.',
-    aboutText2: 'Hướng phát triển của tôi là AI Engineer và Quantitative Researcher: xây hệ thống LLM có kiến trúc rõ ràng, pipeline RAG đáng tin cậy, và Multi-Agent workflows giải quyết bài toán thật — không dừng lại ở demo.',
-    statAgents: 'Agent chuyên biệt — TripMate',
-    statDimensions: 'Chiều phân tích JD tự động',
-    statBba: 'GPA Quản trị KD / 4.00',
-    statLlms: 'LLM platforms tích hợp',
-    educationLabel: 'Học vấn & kinh nghiệm',
+    viewMore: "Xem toàn bộ dự án",
+    scroll: "Đi tiếp câu chuyện",
+    aboutLabel: "Câu chuyện · Cách tôi nhìn và làm",
+    aboutHeading: "Tôi không bắt đầu<br><span>từ công nghệ.</span>",
+    aboutText1: "Tôi thường bắt đầu ở nơi mọi thứ còn chưa rõ tên. Tôi lắng nghe bối cảnh, tìm cấu trúc bên dưới dữ liệu và đặt lại câu hỏi cho đúng trước khi nghĩ đến lời giải.",
+    aboutText2: "Từ đó, tôi dùng LLM, RAG và multi-agent để xây những hệ thống vừa đủ sâu để đáng tin, vừa đủ gần để người dùng muốn chạm vào.",
+    statAgents: "Agent phối hợp để tạo một hành trình",
+    statDimensions: "Tín hiệu được đọc từ một JD",
+    statBba: 'Luồng xử lý trong trợ lý tài chính',
+    statLlms: "Biến câu hỏi thành hướng giải quyết",
+    educationLabel: "Học vấn & trải nghiệm",
     consultingOrg: 'VinaSoftware Co., Ltd. (VNS)',
     roleConsulting: 'Software Consulting Intern',
-    consultingText: 'Tham gia tư vấn phần mềm cho enterprise websites, landing pages và business management systems. Phân tích yêu cầu, đặc tả chức năng, và kết nối nhu cầu kinh doanh với giải pháp kỹ thuật trong toàn bộ vòng đời sản phẩm.',
-    present: 'NAY',
+    consultingText: "Tôi hỗ trợ tư vấn website doanh nghiệp, landing page và hệ thống quản lý. Công việc bắt đầu từ việc nghe đúng nhu cầu, làm rõ yêu cầu rồi đưa chúng về một giải pháp kỹ thuật khả thi.",
+    present: "HIỆN TẠI",
     degreeCs: 'Cử nhân Toán học & Khoa học máy tính',
     vnuhcm: 'ĐH Khoa học Tự nhiên – ĐHQG TP.HCM',
-    vnuhcmText: 'Nơi giúp tôi phát triển nền tảng toán học và AI vững chắc',
+    vnuhcmText: "Nơi tôi đặt nền móng cho tư duy toán học và AI",
     vnuhcmCourse1: 'Cấu trúc dữ liệu & Giải thuật',
     vnuhcmCourse2: 'Cơ sở dữ liệu & Lập trình Web',
     vnuhcmCourse3: 'Khai thác dữ liệu và ứng dụng',
     vnuhcmCourse4: 'Machine Learning & Deep Learning',
     degreeBba: 'Cử nhân Quản trị Kinh doanh',
     neu: 'Đại học Kinh tế Quốc dân',
-    neuText: 'Góc nhìn kinh doanh giúp tôi định hình sản phẩm AI theo hướng tạo giá trị thực, không chỉ kỹ thuật.',
+    neuText: "Kinh doanh dạy tôi nhìn xa hơn lời giải kỹ thuật: công nghệ cần tạo ra giá trị mà người dùng có thể cảm nhận.",
     neuCourse1: 'Toán cho các nhà kinh tế',
     neuCourse2: 'Thống kê trong kinh doanh',
     neuCourse3: 'Kinh tế vi mô & vĩ mô',
     neuCourse4: 'Quản trị kinh doanh',
-    workLabel: 'Dự án chọn lọc',
-    projectHeading: 'Dự án <span>AI & Định lượng</span>',
+    workLabel: "Chương 02 · Những thứ đã thành hình",
+    projectHeading: "Những câu hỏi<br><span>đã thành hình.</span>",
     catQuant: 'Quantitative Research',
-    discuss: 'Cùng trao đổi',
-    project1: 'Trợ lý y tế thông minh dùng LangGraph StateGraph để điều phối đa luồng hội thoại (RAG, Symptom, Planner, Chat). Tích hợp voice TTS, persistent memory bằng vector embeddings, REST API endpoint và evaluation scripts đo latency & độ tin cậy.',
-    project2: 'Pipeline trích xuất 9+ chiều yêu cầu từ JD thô bằng few-shot prompting và schema-guided outputs. Đối sánh CV, tạo hướng dẫn phỏng vấn, soạn cover letter — toàn bộ end-to-end trong Streamlit với hỗ trợ PDF/DOCX/TXT và đa ngôn ngữ.',
-    project3: 'Hệ thống lập kế hoạch du lịch biến natural-language request thành lịch trình cá nhân hóa qua LangGraph workflow. Các agent chuyên biệt xử lý flight search, hotel, itinerary; tích hợp Groq, Tavily, AviationStack API real-time. State được persist trên PostgreSQL (Render).',
-    project4: 'Framework backtest chiến lược Golden/Death Cross với vectorized engine, transaction cost modeling, walk-forward validation, và sensitivity analysis. Pipeline từ raw OHLCV → signals → Sharpe, CAGR, Max Drawdown → dashboard Streamlit trực quan từng regime.',
-    project5: 'Trợ lý tài chính song ngữ với hybrid architecture: 3 đường xử lý (Market Data real-time, Knowledge RAG, Combined analysis). Query router tự động phân luồng khái niệm / dữ liệu số / phân tích tổng hợp. ETL pipeline nạp báo cáo tài chính, tích hợp vnstock · Yahoo Finance · EcoData macro.',
-    project6: 'Pipeline end-to-end phát hiện anomaly trên dữ liệu sensor bán dẫn (UCI SECOM) — bài toán unsupervised áp dụng cho risk / fraud detection. So sánh Isolation Forest, One-Class SVM, Autoencoder PyTorch. SHAP giải thích feature nào đẩy điểm vào vùng bất thường.',
+    discuss: "Trao đổi về dự án",
+    project1: "Trợ lý y tế dùng LangGraph để điều phối bốn luồng: hỏi đáp tài liệu, triệu chứng, lập kế hoạch và trò chuyện. Có giọng nói TTS, bộ nhớ dài hạn, REST API và bộ đánh giá độ trễ, độ tin cậy.",
+    project2: "Công cụ đọc JD và bóc tách hơn 9 nhóm yêu cầu bằng few-shot prompting. Hệ thống đối sánh CV, chuẩn bị câu hỏi phỏng vấn và soạn cover letter, hỗ trợ PDF, DOCX, TXT cùng báo cáo đa ngôn ngữ.",
+    project3: "TripMate biến một yêu cầu tự nhiên thành lịch trình riêng cho từng người. Các agent phụ trách chuyến bay, khách sạn và hành trình; dữ liệu thời gian thực đến từ Groq, Tavily và AviationStack, còn PostgreSQL lưu lại trạng thái.",
+    project4: "Bộ công cụ backtest Golden/Death Cross với engine vector hóa, chi phí giao dịch, walk-forward validation và sensitivity analysis. Từ OHLCV, hệ thống tạo tín hiệu rồi đo Sharpe, CAGR, Max Drawdown theo từng trạng thái thị trường.",
+    project5: "Trợ lý tài chính song ngữ với ba hướng xử lý: dữ liệu thị trường, Knowledge RAG và phân tích kết hợp. Query router tự chọn đường đi; ETL pipeline nạp báo cáo và kết nối vnstock, Yahoo Finance cùng dữ liệu vĩ mô EcoData.",
+    project6: "Pipeline phát hiện bất thường trên dữ liệu cảm biến bán dẫn UCI SECOM. Dự án so sánh Isolation Forest, One-Class SVM và PyTorch Autoencoder, rồi dùng SHAP để chỉ ra yếu tố khiến một điểm dữ liệu trở nên khác thường.",
     viewMore: 'Xem thêm dự án',
-    recognitionLabel: 'Ghi nhận',
-    recognitionHeading: 'Ghi nhận<br>&amp; <span>nền tảng</span>',
+    recognitionLabel: "Chương 03 · Những nền tảng phía sau",
+    recognitionHeading: "Điều đứng sau<br>&amp; <span>những sản phẩm đó.</span>",
     awardLabel: 'Học bổng',
     academicLabel: 'Học thuật',
     award1: 'Mitsubishi UFJ Scholarship',
-    award1sub: 'Ghi nhận thành tích học tập và tiềm năng phát triển',
+    award1sub: "Ghi nhận nỗ lực học tập và tiềm năng phát triển",
     award2: 'Talent Minds Agency Scholarship',
-    award2sub: 'Ghi nhận thái độ học tập và định hướng nghề nghiệp',
+    award2sub: "Ghi nhận tinh thần học hỏi và định hướng nghề nghiệp",
     award3: 'Học bổng Khuyến khích Học tập Xuất sắc',
     award3sub: 'Top 5% toàn khóa · 3 học kỳ',
-    contactEyebrow: 'AI Engineer · Quant Researcher · Open to opportunities',
-    contactHeading: 'Hãy cùng nhau<br><em>chia sẻ những ý tưởng tuyệt vời.</em>',
-    backToTop: 'Lên đầu trang ↑',
+    awardsHeading: "Học bổng & thành tích",
+    credentialsHeading: 'Chứng chỉ chuyên môn',
+    credential1: 'Hypothesis Testing in Python',
+    credential1Issuer: 'DataCamp',
+    credential2: 'AI & Data Science Foundation',
+    credential2Issuer: 'Quanskill',
+    credential3: 'Data Streaming Engineer — Apache Flink®',
+    credential3Issuer: 'Confluent, an IBM Company',
+    credential4: 'Data Streaming Engineer Foundations',
+    credential4Issuer: 'Confluent, an IBM Company',
+    contactEyebrow: "Một câu hỏi hay luôn đáng để bắt đầu",
+    contactHeading: "Nếu bạn cũng đang<br><em>đi tìm một lời giải.</em>",
+    backToTop: "Về đầu trang ↑",
+    journeyLabel: "Một hành trình được xây từ những câu hỏi",
+    journeyTitle: "Từ một câu hỏi<br><em>đến điều có ích.</em>",
+    journeyDescription: "Từ đặt câu hỏi, nảy ý tưởng, xây dựng đến khi sản phẩm thành hình và để lại một dấu ấn có thể nhìn thấy.",
+    journeyCta: "Bắt đầu hành trình",
+    journeyIntroLabel: "Điểm bắt đầu",
+    journeyIntroTitle: "Tôi xây hệ thống<br><span>như kể một câu chuyện.</span>",
+    journeyIntroText: "Mỗi dự án bắt đầu bằng một điểm mơ hồ. Tôi tách nó thành những phần có thể quan sát, xây từng lớp có chủ đích và chỉ gọi là hoàn thành khi người dùng hiểu được điều hệ thống đang làm.",
+    journeyStep1Title: "Đặt câu hỏi",
+    journeyStep1Body: "Không vội chọn mô hình. Tôi bắt đầu bằng việc lắng nghe bối cảnh, gọi đúng tên vấn đề và tìm tín hiệu đáng tin giữa rất nhiều dữ liệu.",
+    journeyStep1Tech: "Quan sát · dữ liệu · tư duy định lượng",
+    journeyStep2Title: "Nảy ý tưởng",
+    journeyStep2Body: "Tôi biến điều còn mơ hồ thành một hướng đi có thể thử: một giả thuyết, một luồng trải nghiệm và một cách đo xem nó có đáng để tiếp tục hay không.",
+    journeyStep2Tech: "Product thinking · research · prompt design",
+    journeyStep3Title: "Xây dựng",
+    journeyStep3Body: "Một ý tưởng tốt cần một cấu trúc tốt: luồng xử lý rõ ràng, bộ nhớ đúng chỗ, API có thể kiểm thử và những giới hạn được nói thẳng.",
+    journeyStep3Tech: "Python · LangGraph · FastAPI · PostgreSQL",
+    journeyStep4Title: "Sản phẩm thành hình",
+    journeyStep4Body: "Khi các mảnh ghép kết nối, hệ thống bắt đầu trả lời được câu hỏi ban đầu. Tôi kiểm thử, tinh chỉnh và đưa nó đến gần hơn với một trải nghiệm thật.",
+    journeyStep4Tech: "RAG · Multi-Agent · Streamlit · evaluation",
+    journeyStep5Title: "Dấu ấn",
+    journeyStep5Body: "Điều còn lại không chỉ là một demo. Đó là một sản phẩm có thể giải thích, một kết quả có thể kiểm chứng và một bài học để bước tiếp.",
+    journeyStep5Tech: "GPA 9.14 · Top 5% · học bổng · 6 dự án",
+    journeyLayersLabel: "Năm chặng của một lời giải",
+    journeyLayersTitle: "Đi từng bước.<br><span>Thấy ý tưởng thành hình.</span>",
+    journeyProofLabel: "Những lát cắt có thật",
+    journeyProofTitle: "Ba hệ thống.<br><span>Ba cách biến câu hỏi thành hình hài.</span>",
+    journeyProof1Title: "Khi dữ liệu cần một giọng nói",
+    journeyProof1Body: "Healthcare AI Chatbot nối tri thức, triệu chứng và hội thoại trong một trợ lý có bộ nhớ dài hạn.",
+    journeyProof2Title: "Khi một JD cần được đọc kỹ",
+    journeyProof2Body: "JD Intelligence Agent biến mô tả tuyển dụng thô thành bản đồ yêu cầu, câu hỏi phỏng vấn và bước chuẩn bị cụ thể.",
+    journeyProof3Title: "Khi một chuyến đi cần có nhịp riêng",
+    journeyProof3Body: "TripMate phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.",
+    journeyEndTitle: "Bạn đang đứng trước<br><em>câu hỏi nào?</em>",
+    journeyEndLabel: "04 · CÂU HỎI TIẾP THEO",
+    journeyEndText: "Nếu bài toán đủ thú vị, tôi muốn cùng bạn đi qua cả ba lớp: hiểu đúng, xây chắc và tạo ra điều có ích.",
   },
   en: {
-    navAbout: 'About',
+    navAbout: 'About me',
     navProjects: 'Projects',
-    navRecognition: 'Recognition',
-    headerCta: "Let's talk",
-    availability: 'Available for AI Engineer & Quant Researcher roles',
-    heroTitle: 'AI Engineer.<br><em>Quantitative mindset.</em>',
-    heroDescription: 'Double-degree graduate in Mathematics & CS (GPA 9.14) and Business Administration (GPA 3.55) from VNUHCM-US & NEU. I build end-to-end AI systems — LLM architecture, RAG pipelines, Multi-Agent workflows — and speak both the language of data and business decisions.',
-    metricGpa: 'Math & CS GPA',
-    metricRank: 'Of cohort, 3 terms',
-    metricProjects: 'AI & Quant systems shipped',
-    metricDegrees: 'Bachelor degrees',
+    navJourney: 'Story',
+    navRecognition: "Highlights",
+    lightMode: "Light",
+    lightNavAbout: "About me",
+    lightNavProjects: "Projects",
+    lightNavEducation: "Education",
+    lightKicker: "AI Engineer · Quantitative Researcher",
+    lightHeroTitle: "I turn difficult questions into <em>useful systems.</em>",
+    lightHeroLead: "I bring together mathematical thinking, AI foundations, and a business lens to read problems from more than one side, then build solutions people can use.",
+    lightHeroCta: "See what I build",
+    lightDarkLink: "View dark version",
+    lightStoryLabel: "How I work",
+    lightStoryTitle: "I do not begin with technology.<br><em>I begin with people.</em>",
+    lightStoryBody: "I often begin where things do not yet have a clear name. I listen for context, look for the structure beneath the data, and reshape the question before reaching for an answer.",
+    lightWorkLabel: "What took shape",
+    lightWorkTitle: "An idea comes alive<br><em>when someone can use it.</em>",
+    lightWorkBody: "Three slices from the work of building AI and quantitative systems.",
+    lightProject1: "A healthcare assistant connecting knowledge, symptoms, and conversation with long-term memory.",
+    lightProject2: "Reads job descriptions, extracts requirements, and turns them into concrete preparation steps.",
+    lightProject3: "Coordinates specialized agents to turn a natural-language request into an itinerary people can use.",
+    lightProject4: "Backtests a Golden/Death Cross strategy from OHLCV data to Sharpe, CAGR, and Max Drawdown.",
+    lightProject5: "A bilingual financial assistant combining market data, Knowledge RAG, and joined-up analysis.",
+    lightProject6: "Detects anomalies in sensor data with Isolation Forest, One-Class SVM, Autoencoder, and SHAP.",
+    lightGithub: "View GitHub ↗",
+    lightViewMore: "View more projects",
+    lightCollapse: "Collapse projects",
+    lightEducationLabel: "What stands behind the work",
+    lightThemeDark: "Dark",
+    lightContact: "Connect",
+    lightQuestion: "“What truly needs to become clearer?”",
+    lightQuestionCaption: "That is where the story begins.",
+    lightPath1: "Ask well",
+    lightPath1Detail: "See what is worth solving",
+    lightPath2: "Shape the idea",
+    lightPath2Detail: "Turn the unclear into direction",
+    lightPath3: "Build deeply",
+    lightPath3Detail: "Make the idea work",
+    lightPath4: "Let it take shape",
+    lightPath4Detail: "Bring the system closer to people",
+    lightPath5: "Leave a mark",
+    lightPath5Detail: "Let technology reach people",
+    lightEducationTitle: "Two lenses.<br><em>A wider way of seeing.</em>",
+    lightEducationBody: "Mathematics and Computer Science give me structure. Business Administration gives me context. Together, they help me build AI products that are technically sound and worth having.",
+    lightGpaMath: "Mathematics & CS GPA / 10.00",
+    lightGpaBusiness: "Business Administration GPA / 4.00",
+    lightRank: "Top of cohort · 3 semesters",
+    lightExpBody: "Analyzed requirements, clarified specifications, and connected business needs with workable technical solutions.",
+    lightDegreeMath: "B.S. Mathematics & Computer Science",
+    lightSchoolMath: "VNUHCM – University of Science · GPA 9.14 / 10.00",
+    lightDegreeMathBody: "A foundation in mathematics, data structures, data mining, Machine Learning, and Deep Learning.",
+    lightPresent: "present",
+    lightDegreeBusiness: "Bachelor of Business Administration",
+    lightSchoolBusiness: "National Economics University · GPA 3.55 / 4.00",
+    lightDegreeBusinessBody: "The business lens helps me put technology in context and build toward real value.",
+    lightCloseTitle: "What question<br><em>are you standing before?</em>",
+    lightCloseCta: "Start a conversation ↗",
+    lightFullCv: "Full CV ↗",
+    progressAbout: "About me",
+    progressProjects: "What I build",
+    progressRecognition: "What remains",
+    headerCta: "Connect",
+    availability: "Open to AI Engineer & Quant Researcher opportunities",
+    heroTitle: "Every problem<br><em>begins with a question.</em>",
+    heroDescription: "I bring together mathematical thinking, AI foundations, and a business lens to turn open questions into systems people can use.",
+    storyQuestion: 'Ask the question',
+    storyQuestionDetail: 'See what is worth solving',
+    storyIdea: 'Shape the idea',
+    storyIdeaDetail: 'Turn the unclear into direction',
+    storyBuild: 'Build the system',
+    storyBuildDetail: 'Make the idea work',
+    storyProduct: 'Let it take shape',
+    storyProductDetail: 'Bring the system closer to people',
+    storyImpact: 'Leave a mark',
+    storyImpactDetail: 'Let technology reach people',
     viewProjects: 'View projects',
-    viewMore: 'View all projects',
-    scroll: 'Scroll to explore',
-    aboutLabel: 'About me',
-    aboutHeading: 'Where mathematics<br><span>meets intelligence.</span>',
-    aboutText1: 'I graduated with a double degree in Mathematics & CS (GPA 9.14/10) and Business Administration — not to stack credentials, but to read the language of data, algorithms, and business decisions simultaneously.',
-    aboutText2: 'My trajectory is AI Engineer and Quantitative Researcher: building LLM systems with clear architecture, reliable RAG pipelines, and Multi-Agent workflows that solve real problems — not just demos.',
-    statAgents: 'Specialized agents — TripMate',
-    statDimensions: 'JD requirement dimensions',
-    statBba: 'Business Admin GPA / 4.00',
-    statLlms: 'LLM platforms integrated',
+    viewMore: "Explore all projects",
+    scroll: "Continue the story",
+    aboutLabel: "Story · How I think and build",
+    aboutHeading: "I do not begin<br><span>with technology.</span>",
+    aboutText1: "I often begin where things do not yet have a clear name. I listen for context, look for the structure beneath the data, and reshape the question before reaching for an answer.",
+    aboutText2: "From there, I use LLMs, RAG, and multi-agent systems to build work that is deep enough to trust and close enough for people to use.",
+    statAgents: "Agents working together on one journey",
+    statDimensions: "Signals read from one job description",
+    statBba: 'Paths inside a financial assistant',
+    statLlms: 'Turning questions into direction',
     educationLabel: 'Education & experience',
     consultingOrg: 'VinaSoftware Co., Ltd. (VNS)',
     roleConsulting: 'Software Consulting Intern',
-    consultingText: 'Participated in software consulting for enterprise websites, landing pages, and business management systems. Analyzed requirements, wrote functional specs, and connected business needs to technical solutions across the full product lifecycle.',
+    consultingText: "Supported software consulting for enterprise websites, landing pages, and business management systems. I analyzed requirements, clarified functional specifications, and connected business needs with technical solutions throughout the product lifecycle.",
     present: 'PRESENT',
     degreeCs: 'B.S. Mathematics & Computer Science',
     vnuhcm: 'VNUHCM – University of Science',
-    vnuhcmText: 'Where I built a solid foundation in mathematics and AI',
+    vnuhcmText: "Where I built a strong foundation in mathematics and AI",
     vnuhcmCourse1: 'Data Structures & Algorithms',
     vnuhcmCourse2: 'Database Systems & Web Programming',
     vnuhcmCourse3: 'Data Mining & Applications',
     vnuhcmCourse4: 'Machine Learning & Deep Learning',
     degreeBba: 'Bachelor of Business Administration',
     neu: 'National Economics University',
-    neuText: 'The business perspective sharpens how I frame AI products toward real value creation, not just technical output.',
+    neuText: "The business perspective helps me put technology in context: creating real value, not simply completing a technical task.",
     neuCourse1: 'Mathematics for Economists',
     neuCourse2: 'Business Statistics',
     neuCourse3: 'Micro & Macroeconomics',
     neuCourse4: 'Business Administration',
-    workLabel: 'Selected work',
-    projectHeading: 'Featured <span>AI & Quant projects</span>',
+    workLabel: "Chapter 02 · What took shape",
+    projectHeading: "Questions that<br><span>became real systems.</span>",
     catQuant: 'Quantitative Research',
-    discuss: "Let's discuss",
-    project1: 'Intelligent healthcare assistant using LangGraph StateGraph to orchestrate multi-branch conversations (RAG, Symptom, Planner, Chat). Integrated voice TTS, persistent memory via vector embeddings, REST API endpoints, and evaluation scripts measuring latency and reliability.',
-    project2: 'Pipeline extracting 9+ requirement dimensions from raw JDs using few-shot prompting and schema-guided outputs. CV matching, interview guidance, cover letter drafting — fully end-to-end in Streamlit with PDF/DOCX/TXT support and multilingual reporting.',
-    project3: 'Travel planning system that transforms natural-language requests into personalized itineraries via LangGraph workflow. Specialized agents handle flight search, hotels, and itinerary planning, integrating Groq, Tavily, and AviationStack APIs. State persisted on PostgreSQL (Render).',
-    project4: 'Backtesting framework for Golden/Death Cross strategies with a vectorized engine, transaction cost modeling, walk-forward validation, and sensitivity analysis. Full pipeline from raw OHLCV → signals → Sharpe, CAGR, Max Drawdown → Streamlit dashboard by market regime.',
-    project5: 'Bilingual financial assistant with hybrid architecture: 3 processing paths (real-time Market Data, Knowledge RAG, Combined analysis). Query router auto-routes concept / numeric / synthesis requests. ETL pipeline ingests financial reports, structured citations, vnstock · Yahoo Finance · EcoData macro.',
-    project6: 'End-to-end anomaly detection pipeline on semiconductor sensor data (UCI SECOM) — an unsupervised approach applicable to risk and fraud detection in finance. Compares Isolation Forest, One-Class SVM, and PyTorch Autoencoder. SHAP explains which features push a sample into the anomaly region.',
+    discuss: "Let’s talk through it",
+    project1: "A healthcare assistant using LangGraph StateGraph to coordinate RAG, symptom, planning, and chat flows. It combines voice TTS, long-term vector memory, REST APIs, and evaluation scripts for latency and reliability.",
+    project2: "A pipeline that extracts more than nine requirement dimensions from raw job descriptions with few-shot prompting and schema-guided output. It supports CV matching, interview preparation, and cover-letter drafting in Streamlit with PDF/DOCX/TXT and multilingual reporting.",
+    project3: "A travel planner that turns natural-language requests into personal itineraries through LangGraph. Specialized agents handle flights, hotels, and planning; Groq, Tavily, and AviationStack provide live information while PostgreSQL keeps the state.",
+    project4: "A Golden/Death Cross backtesting framework with a vectorized engine, transaction-cost modeling, walk-forward validation, and sensitivity analysis. It turns OHLCV data into signals, Sharpe, CAGR, Max Drawdown, and a Streamlit dashboard by market regime.",
+    project5: "A bilingual financial assistant with three paths: live market data, Knowledge RAG, and combined analysis. A query router directs each question while an ETL pipeline ingests financial reports and connects vnstock, Yahoo Finance, and EcoData macro data.",
+    project6: "An anomaly-detection pipeline for UCI SECOM semiconductor sensor data. The unsupervised approach is applicable to risk and fraud detection; it compares Isolation Forest, One-Class SVM, and a PyTorch Autoencoder, with SHAP explaining the result.",
     viewMore: 'View all projects',
-    recognitionLabel: 'Recognition',
-    recognitionHeading: 'Awards<br>&amp; <span>foundation</span>',
+    recognitionLabel: "Chapter 03 · What stands behind them",
+    recognitionHeading: "What stands behind<br><span>the work.</span>",
     awardLabel: 'Scholarship',
     academicLabel: 'Academic',
     award1: 'Mitsubishi UFJ Scholarship',
-    award1sub: 'Recognized for academic performance and development potential',
+    award1sub: "Recognized for academic effort and growth potential",
     award2: 'Talent Minds Agency Scholarship',
-    award2sub: 'Recognized for learning attitude and career orientation',
+    award2sub: "Recognized for a strong learning mindset and career direction",
     award3: 'Excellent Academic Encouragement Scholarship',
     award3sub: 'Top 5% of cohort · 3 semesters',
-    contactEyebrow: 'AI Engineer · Quant Researcher · Open to opportunities',
-    contactHeading: "Let's connect and<br><em>share great ideas together.</em>",
+    awardsHeading: "Scholarships & achievements",
+    credentialsHeading: 'Professional certificates',
+    credential1: 'Hypothesis Testing in Python',
+    credential1Issuer: 'DataCamp',
+    credential2: 'AI & Data Science Foundation',
+    credential2Issuer: 'Quanskill',
+    credential3: 'Data Streaming Engineer — Apache Flink®',
+    credential3Issuer: 'Confluent, an IBM Company',
+    credential4: 'Data Streaming Engineer Foundations',
+    credential4Issuer: 'Confluent, an IBM Company',
+    contactEyebrow: "A good question is always worth beginning",
+    contactHeading: "If you are also<br><em>looking for an answer.</em>",
     backToTop: 'Back to top ↑',
+    journeyLabel: "A journey built from questions",
+    journeyTitle: "From one question<br><em>to something useful.</em>",
+    journeyDescription: "From asking, imagining, and building to a product that takes shape and leaves a mark you can see.",
+    journeyCta: "Begin the journey",
+    journeyIntroLabel: "The starting point",
+    journeyIntroTitle: "I build systems<br><span>like telling a story.</span>",
+    journeyIntroText: "Every project begins with something unclear. I break it into observable parts, build each layer with intent, and call it done only when people understand what the system is doing.",
+    journeyStep1Title: "Ask the question",
+    journeyStep1Body: "I do not rush to choose a model. I begin with context, a precise problem, and a search for reliable signals in the noise.",
+    journeyStep1Tech: "Observation · data · quantitative thinking",
+    journeyStep2Title: "Shape the idea",
+    journeyStep2Body: "I turn something unclear into a direction worth testing: a hypothesis, an experience flow, and a way to measure whether it deserves to continue.",
+    journeyStep2Tech: "Product thinking · research · prompt design",
+    journeyStep3Title: "Build the system",
+    journeyStep3Body: "A good idea needs a good structure: clear flows, memory in the right place, testable APIs, and honest limits.",
+    journeyStep3Tech: "Python · LangGraph · FastAPI · PostgreSQL",
+    journeyStep4Title: "Let the product take shape",
+    journeyStep4Body: "When the pieces connect, the system starts answering the original question. I test, refine, and bring it closer to a real experience.",
+    journeyStep4Tech: "RAG · Multi-Agent · Streamlit · evaluation",
+    journeyStep5Title: "Leave a mark",
+    journeyStep5Body: "What remains is more than a demo: an explainable product, a verifiable result, and a lesson that points to the next step.",
+    journeyStep5Tech: "GPA 9.14 · Top 5% · scholarships · 6 projects",
+    journeyLayersLabel: "Five stages of an answer",
+    journeyLayersTitle: "Take it step by step.<br><span>Watch the idea take shape.</span>",
+    journeyProofLabel: "Proof in the work",
+    journeyProofTitle: "Three systems.<br><span>Three ways to give a question form.</span>",
+    journeyProof1Title: "When data needs a voice",
+    journeyProof1Body: "Healthcare AI Chatbot brings knowledge, symptoms, and conversation together in an assistant with long-term memory.",
+    journeyProof2Title: "When a job description needs reading",
+    journeyProof2Body: "JD Intelligence Agent turns raw hiring text into a map of requirements, interview questions, and concrete preparation steps.",
+    journeyProof3Title: "When a trip needs its own rhythm",
+    journeyProof3Body: "TripMate coordinates specialized agents to turn a natural-language request into an itinerary people can actually use.",
+    journeyEndTitle: "What question<br><em>are you standing before?</em>",
+    journeyEndLabel: "04 · THE NEXT QUESTION",
+    journeyEndText: "When the problem is interesting enough, I want to move through all three layers with you: understand, build, and make it useful.",
   },
 };
 
@@ -150,7 +370,13 @@ function setLanguage(lang) {
     const key = el.dataset.i18nHtml;
     if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
   });
-  document.querySelectorAll('.lang-btn').forEach((btn) => {
+  const lightProjectsToggle = document.querySelector('.light-projects-toggle');
+  const lightProjectsLabel = lightProjectsToggle?.querySelector('[data-i18n]');
+  if (lightProjectsToggle && lightProjectsLabel) {
+    const key = lightProjectsToggle.getAttribute('aria-expanded') === 'true' ? 'lightCollapse' : 'lightViewMore';
+    lightProjectsLabel.textContent = translations[lang][key];
+  }
+  document.querySelectorAll('.lang-btn, .light-lang-btn').forEach((btn) => {
     const active = btn.dataset.lang === lang;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', String(active));
@@ -158,7 +384,7 @@ function setLanguage(lang) {
   localStorage.setItem('portfolio-lang', lang);
 }
 
-document.querySelectorAll('.lang-btn').forEach((btn) =>
+document.querySelectorAll('.lang-btn, .light-lang-btn').forEach((btn) =>
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang))
 );
 setLanguage(localStorage.getItem('portfolio-lang') || 'vi');
@@ -175,10 +401,74 @@ if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
 // ---- Navigation scroll state ----
 const nav = document.getElementById('nav');
 const onScroll = () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
+  nav?.classList.toggle('scrolled', window.scrollY > 20);
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
+
+// ---- Reading position ----
+(function initStoryProgress() {
+  const items = Array.from(document.querySelectorAll('.story-progress-item'));
+  const sections = items
+    .map((item) => document.getElementById(item.dataset.progressTarget))
+    .filter(Boolean);
+  if (!items.length || !sections.length) return;
+
+  const setActive = (id) => {
+    items.forEach((item) => item.classList.toggle('active', item.dataset.progressTarget === id));
+  };
+
+  const updateProgress = () => {
+    const readingLine = window.scrollY + window.innerHeight * 0.3;
+    let current = sections[0].id;
+    sections.forEach((section) => {
+      if (section.offsetTop <= readingLine) current = section.id;
+    });
+    setActive(current);
+  };
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+})();
+
+// ---- Education timeline motion ----
+(function initTimelineMotion() {
+  const timeline = document.querySelector('.timeline');
+  const items = Array.from(document.querySelectorAll('.timeline-item'));
+  if (!timeline || !items.length) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reducedMotion) {
+    items.forEach((item) => item.classList.add('is-visible'));
+    timeline.classList.add('reduced-motion');
+  }
+
+  const updateTimeline = () => {
+    const readingLine = window.scrollY + window.innerHeight * 0.42;
+    let currentIndex = 0;
+    let progress = 0;
+
+    items.forEach((item, index) => {
+      const top = item.getBoundingClientRect().top + window.scrollY;
+      const height = item.getBoundingClientRect().height;
+      if (top <= readingLine) currentIndex = index;
+      if (top <= readingLine || reducedMotion) item.classList.add('is-visible');
+      if (top <= readingLine && top + height > readingLine) progress = top + height / 2;
+    });
+
+    items.forEach((item, index) => item.classList.toggle('is-current', index === currentIndex));
+    const timelineTop = timeline.getBoundingClientRect().top + window.scrollY;
+    const timelineHeight = timeline.getBoundingClientRect().height;
+    const percent = Math.max(0, Math.min(100, ((progress || readingLine) - timelineTop) / timelineHeight * 100));
+    timeline.style.setProperty('--timeline-progress', `${percent}%`);
+  };
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', updateTimeline, { passive: true });
+  updateTimeline();
+})();
 
 // ---- Reveal on scroll ----
 const revealObserver = new IntersectionObserver(
@@ -314,6 +604,49 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     initParticles();
     render();
   }, { passive: true });
+})();
+
+// ---- Journey layer interaction ----
+(function initJourneyLayers() {
+  const tabs = Array.from(document.querySelectorAll('.layer-tab'));
+  const panels = Array.from(document.querySelectorAll('.layer-panel'));
+  if (!tabs.length || !panels.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const layer = tab.dataset.layer;
+      tabs.forEach((item) => {
+        const active = item === tab;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach((panel) => {
+        const active = panel.dataset.layerPanel === layer;
+        panel.classList.toggle('active', active);
+        panel.hidden = !active;
+      });
+    });
+  });
+})();
+
+// ---- Light projects collapse ----
+(function initLightProjects() {
+  const projects = Array.from(document.querySelectorAll('.light-project'));
+  const toggle = document.querySelector('.light-projects-toggle');
+  if (!projects.length || !toggle) return;
+
+  let expanded = false;
+  const update = () => {
+    projects.forEach((project, index) => project.classList.toggle('is-hidden', !expanded && index >= 3));
+    toggle.setAttribute('aria-expanded', String(expanded));
+    const lang = localStorage.getItem('portfolio-lang') || 'vi';
+    const label = toggle.querySelector('[data-i18n]');
+    if (label) label.textContent = translations[lang][expanded ? 'lightCollapse' : 'lightViewMore'];
+    toggle.querySelector('[aria-hidden="true"]').textContent = expanded ? '↑' : '↓';
+  };
+
+  toggle.addEventListener('click', () => { expanded = !expanded; update(); });
+  update();
 })();
 
 // ---- Projects carousel ----

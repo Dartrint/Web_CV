@@ -7,10 +7,18 @@
     <title>Trần Thành Đạt — AI Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!--
+      THESIS: Một portfolio có thể được nhớ như một câu chuyện, không chỉ như một bảng thành tích.
+      OWN-WORLD: Sân khấu đêm với các đường chân trời dữ liệu, chữ sáng rõ và những nhịp chuyển có chủ đích.
+      STORY: Người xem đi từ câu hỏi, qua tư duy và hệ thống, đến bằng chứng rồi chủ động kết nối.
+      FIRST VIEWPORT: Câu mở đầu lớn ở trung tâm, CTA rõ ràng và đường dây ba nhịp Hỏi đúng / Xây chắc / Tạo ích ngay bên dưới.
+      FORM: Experience / story-led horizon, seed 5c033070.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
 
     <!-- Background canvas -->
     <canvas id="bgCanvas" aria-hidden="true"></canvas>
@@ -25,9 +33,9 @@
           <span class="logo-bracket" aria-hidden="true">]</span>
         </a>
         <ul class="nav-links" role="list">
-          <li><a class="nav-link" href="#about" data-i18n="navAbout">Giới thiệu</a></li>
+          <li><a class="nav-link" href="#about" data-i18n="navAbout">Về tôi</a></li>
           <li><a class="nav-link" href="#projects" data-i18n="navProjects">Dự án</a></li>
-          <li><a class="nav-link" href="#recognition" data-i18n="navRecognition">Ghi nhận</a></li>
+          <li><a class="nav-link" href="#recognition" data-i18n="navRecognition">Dấu ấn</a></li>
         </ul>
         <div class="nav-actions">
           <div class="language-switcher" aria-label="Language selector">
@@ -35,25 +43,27 @@
             <span class="lang-sep" aria-hidden="true">/</span>
             <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
           </div>
+          <a class="theme-link" href="light.html" data-i18n="lightMode" aria-label="Mở phiên bản nền sáng">Light</a>
           <a class="btn-primary" href="mailto:tranthanhdat.hvt@gmail.com" aria-label="Liên hệ qua email">
-            <span data-i18n="headerCta">Liên hệ</span>
+            <span data-i18n="headerCta">Kết nối</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
     </nav>
+    <div class="nav-story-progress" aria-label="Vị trí trong câu chuyện">
+      <a href="#about" class="story-progress-item active" data-progress-target="about"><span>01</span><strong data-i18n="progressAbout">Về tôi</strong></a>
+      <a href="#projects" class="story-progress-item" data-progress-target="projects"><span>02</span><strong data-i18n="progressProjects">Những gì tôi xây</strong></a>
+      <a href="#recognition" class="story-progress-item" data-progress-target="recognition"><span>03</span><strong data-i18n="progressRecognition">Điều còn lại</strong></a>
+    </div>
 
     <!-- Hero -->
     <section class="hero" id="top" aria-labelledby="heroHeading">
       <div class="hero-inner">
-        <div class="hero-eyebrow reveal">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span data-i18n="availability">Sẵn sàng cho vị trí AI Engineer & Quant Researcher</span>
-        </div>
         <h1 class="hero-title reveal" id="heroHeading">
-          <span data-i18n-html="heroTitle">AI Engineer.<br><em>Tư duy định lượng.</em></span>
+          <span data-i18n-html="heroTitle">Mỗi bài toán<br><em>bắt đầu từ một câu hỏi.</em></span>
         </h1>
-        <p class="hero-desc reveal" data-i18n="heroDescription">Tốt nghiệp kép Toán – Tin (GPA 9.14) và Quản trị Kinh doanh (GPA 3.55) tại VNUHCM-US &amp; NEU. Tôi xây hệ thống AI end-to-end — từ kiến trúc LLM, RAG pipeline, đến Multi-Agent workflows — và đọc được ngôn ngữ của cả dữ liệu lẫn quyết định kinh doanh.</p>
+        <p class="hero-desc reveal" data-i18n="heroDescription">Tôi học song song Toán – Tin (GPA 9.14) và Quản trị Kinh doanh (GPA 3.55) tại VNUHCM-US và NEU. Tôi xây hệ thống AI từ LLM, RAG đến multi-agent, để dữ liệu trở thành những quyết định sáng rõ hơn.</p>
         <div class="hero-cta reveal">
           <a class="btn-primary" href="#projects" aria-label="Xem dự án">
             <span data-i18n="viewProjects">Xem dự án</span>
@@ -63,31 +73,10 @@
             <span data-i18n="headerCta">Liên hệ</span>
           </a>
         </div>
-        <div class="hero-metrics reveal" aria-label="Key metrics">
-          <div class="hero-metric">
-            <span class="metric-value">9.14</span>
-            <span class="metric-label" data-i18n="metricGpa">GPA Toán – Tin</span>
-          </div>
-          <div class="hero-metric-sep" aria-hidden="true"></div>
-          <div class="hero-metric">
-            <span class="metric-value">Top 5%</span>
-            <span class="metric-label" data-i18n="metricRank">Toàn khóa, 3 kỳ</span>
-          </div>
-          <div class="hero-metric-sep" aria-hidden="true"></div>
-          <div class="hero-metric">
-            <span class="metric-value">6</span>
-            <span class="metric-label" data-i18n="metricProjects">Hệ thống AI & Định lượng đã ship</span>
-          </div>
-          <div class="hero-metric-sep" aria-hidden="true"></div>
-          <div class="hero-metric">
-            <span class="metric-value">2×</span>
-            <span class="metric-label" data-i18n="metricDegrees">Bằng cử nhân</span>
-          </div>
-        </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">
         <div class="scroll-line"></div>
-        <span class="scroll-text" data-i18n="scroll">Khám phá thêm</span>
+        <span class="scroll-text" data-i18n="scroll">Đi tiếp câu chuyện</span>
       </div>
     </section>
 
@@ -96,13 +85,41 @@
       <div class="container">
         <div class="section-label reveal">
           <span class="label-num" aria-hidden="true">01</span>
-          <span data-i18n="aboutLabel">Về tôi</span>
+          <span data-i18n="aboutLabel">Câu chuyện · Cách tôi nhìn và làm</span>
+        </div>
+        <div class="integrated-story reveal" aria-label="Các chặng trong câu chuyện">
+          <div class="integrated-story-line" aria-hidden="true"></div>
+          <article class="integrated-step integrated-step--active">
+            <span class="integrated-step-index">01</span>
+            <h3 data-i18n="storyQuestion">Đặt câu hỏi</h3>
+            <p data-i18n="storyQuestionDetail">Nhìn thấy điều đáng giải</p>
+          </article>
+          <article class="integrated-step">
+            <span class="integrated-step-index">02</span>
+            <h3 data-i18n="storyIdea">Nảy ý tưởng</h3>
+            <p data-i18n="storyIdeaDetail">Biến điều mơ hồ thành hướng đi</p>
+          </article>
+          <article class="integrated-step">
+            <span class="integrated-step-index">03</span>
+            <h3 data-i18n="storyBuild">Xây dựng</h3>
+            <p data-i18n="storyBuildDetail">Để ý tưởng chạy được</p>
+          </article>
+          <article class="integrated-step">
+            <span class="integrated-step-index">04</span>
+            <h3 data-i18n="storyProduct">Thành hình</h3>
+            <p data-i18n="storyProductDetail">Đưa hệ thống đến gần người dùng</p>
+          </article>
+          <article class="integrated-step">
+            <span class="integrated-step-index">05</span>
+            <h3 data-i18n="storyImpact">Để lại dấu ấn</h3>
+            <p data-i18n="storyImpactDetail">Để công nghệ chạm vào đời sống</p>
+          </article>
         </div>
         <div class="about-grid">
           <div class="about-text">
-            <h2 class="section-heading reveal" id="aboutHeading" data-i18n-html="aboutHeading">Nơi toán học<br><span>gặp trí tuệ nhân tạo.</span></h2>
-            <p class="about-para reveal" data-i18n="aboutText1">Tôi tốt nghiệp song song Toán – Khoa học máy tính và Quản trị Kinh doanh — không phải để ghi thêm bằng cấp, mà để có thể đọc cùng lúc ngôn ngữ của dữ liệu, của thuật toán, và của quyết định kinh doanh.</p>
-            <p class="about-para reveal" data-i18n="aboutText2">Hướng phát triển của tôi là AI Engineer và Quantitative Researcher: xây hệ thống LLM có kiến trúc rõ ràng, pipeline RAG đáng tin cậy, và Multi-Agent workflows giải quyết bài toán thật — không dừng lại ở demo.</p>
+            <h2 class="section-heading reveal" id="aboutHeading" data-i18n-html="aboutHeading">Tôi không bắt đầu<br><span>từ công nghệ.</span></h2>
+            <p class="about-para reveal" data-i18n="aboutText1">Tôi học Toán – Khoa học máy tính cùng Quản trị Kinh doanh để nhìn một bài toán trọn vẹn hơn: từ dữ liệu, thuật toán đến giá trị tạo ra cho con người và tổ chức.</p>
+            <p class="about-para reveal" data-i18n="aboutText2">Tôi theo đuổi AI Engineering và Quantitative Research, tập trung vào những hệ thống LLM mạch lạc, RAG đáng tin cậy và multi-agent giải quyết được việc thật.</p>
             <div class="tech-stack reveal" aria-label="Tech stack">
               <span class="tech-tag">Python</span>
               <span class="tech-tag">LangGraph</span>
@@ -120,19 +137,19 @@
           <div class="stats-grid reveal">
             <div class="stat-card">
               <span class="stat-value">4</span>
-              <span class="stat-label" data-i18n="statAgents">Agent chuyên biệt — TripMate</span>
+              <span class="stat-label" data-i18n="statAgents">Agent phối hợp để tạo một hành trình</span>
             </div>
             <div class="stat-card">
               <span class="stat-value">9+</span>
-              <span class="stat-label" data-i18n="statDimensions">Chiều phân tích JD tự động</span>
+              <span class="stat-label" data-i18n="statDimensions">Tín hiệu được đọc từ một JD</span>
             </div>
             <div class="stat-card">
-              <span class="stat-value">3.55</span>
-              <span class="stat-label" data-i18n="statBba">GPA Quản trị KD / 4.00</span>
+              <span class="stat-value">3</span>
+              <span class="stat-label" data-i18n="statBba">Luồng xử lý trong trợ lý tài chính</span>
             </div>
             <div class="stat-card">
-              <span class="stat-value">5+</span>
-              <span class="stat-label" data-i18n="statLlms">LLM platforms tích hợp</span>
+              <span class="stat-value">1→1</span>
+              <span class="stat-label" data-i18n="statLlms">Biến câu hỏi thành hướng giải quyết</span>
             </div>
           </div>
         </div>
@@ -140,7 +157,7 @@
         <!-- Education & Experience -->
         <div class="section-label reveal" style="margin-top: 80px;">
           <span class="label-num" aria-hidden="true">01.1</span>
-          <span data-i18n="educationLabel">Học vấn & kinh nghiệm</span>
+          <span data-i18n="educationLabel">Học vấn & trải nghiệm</span>
         </div>
         <div class="timeline reveal">
           <div class="timeline-item">
@@ -151,7 +168,7 @@
                 <span class="timeline-org" data-i18n="consultingOrg">VinaSoftware Co., Ltd. (VNS)</span>
               </div>
               <h3 class="timeline-title" data-i18n="roleConsulting">Software Consulting Intern</h3>
-              <p class="timeline-desc" data-i18n="consultingText">Tham gia tư vấn phần mềm cho enterprise websites, landing pages và business management systems. Phân tích yêu cầu, đặc tả chức năng, và kết nối nhu cầu kinh doanh với giải pháp kỹ thuật trong toàn bộ vòng đời sản phẩm.</p>
+              <p class="timeline-desc" data-i18n="consultingText">Tôi hỗ trợ tư vấn website doanh nghiệp, landing page và hệ thống quản lý. Công việc bắt đầu từ việc nghe đúng nhu cầu, làm rõ yêu cầu rồi đưa chúng về một giải pháp kỹ thuật khả thi.</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -160,9 +177,10 @@
               <div class="timeline-meta">
                 <span class="timeline-year">2022 — 2026</span>
                 <span class="timeline-org" data-i18n="vnuhcm">ĐH Khoa học Tự nhiên – ĐHQG TP.HCM</span>
+                <span class="timeline-gpa">GPA 9.14 / 10.00</span>
               </div>
               <h3 class="timeline-title" data-i18n="degreeCs">Cử nhân Toán học & Khoa học máy tính</h3>
-              <p class="timeline-desc" data-i18n="vnuhcmText">Nơi giúp tôi phát triển nền tảng toán học và AI vững chắc</p>
+              <p class="timeline-desc" data-i18n="vnuhcmText">Nơi tôi đặt nền móng cho tư duy toán học và AI</p>
               <div class="coursework-tags" aria-label="Relevant coursework">
                 <span class="course-tag" data-i18n="vnuhcmCourse1">Cấu trúc dữ liệu & Giải thuật</span>
                 <span class="course-tag" data-i18n="vnuhcmCourse2">Cơ sở dữ liệu & Lập trình Web</span>
@@ -177,9 +195,10 @@
               <div class="timeline-meta">
                 <span class="timeline-year">2023 — <span data-i18n="present">NAY</span></span>
                 <span class="timeline-org" data-i18n="neu">Đại học Kinh tế Quốc dân</span>
+                <span class="timeline-gpa">GPA 3.55 / 4.00</span>
               </div>
               <h3 class="timeline-title" data-i18n="degreeBba">Cử nhân Quản trị Kinh doanh</h3>
-              <p class="timeline-desc" data-i18n="neuText">Góc nhìn kinh doanh giúp tôi định hình sản phẩm AI theo hướng tạo giá trị thực, không chỉ kỹ thuật.</p>
+              <p class="timeline-desc" data-i18n="neuText">Kinh doanh dạy tôi nhìn xa hơn lời giải kỹ thuật: công nghệ cần tạo ra giá trị mà người dùng có thể cảm nhận.</p>
               <div class="coursework-tags" aria-label="Relevant coursework">
                 <span class="course-tag" data-i18n="neuCourse1">Toán cho các nhà kinh tế</span>
                 <span class="course-tag" data-i18n="neuCourse2">Thống kê trong kinh doanh</span>
@@ -197,9 +216,9 @@
       <div class="container">
         <div class="section-label reveal">
           <span class="label-num" aria-hidden="true">02</span>
-          <span data-i18n="workLabel">Dự án chọn lọc</span>
+          <span data-i18n="workLabel">Chương 02 · Những thứ đã thành hình</span>
         </div>
-        <h2 class="section-heading reveal" id="projectsHeading" data-i18n-html="projectHeading">Dự án <span>AI & Định lượng</span></h2>
+        <h2 class="section-heading reveal" id="projectsHeading" data-i18n-html="projectHeading">Những câu hỏi<br><span>đã thành hình.</span></h2>
 
         <div class="projects-carousel" id="projectsCarousel">
           <div class="projects-track" id="projectsTrack">
@@ -218,7 +237,7 @@
                   </div>
                 </div>
                 <h3 class="project-title" id="p1Title">Healthcare AI Chatbot</h3>
-                <p class="project-desc" data-i18n="project1">Trợ lý y tế thông minh dùng LangGraph StateGraph để điều phối đa luồng hội thoại (RAG, Symptom, Planner, Chat). Tích hợp voice TTS, persistent memory bằng vector embeddings, REST API endpoint và evaluation scripts đo latency & độ tin cậy.</p>
+                <p class="project-desc" data-i18n="project1">Trợ lý y tế dùng LangGraph để điều phối bốn luồng: hỏi đáp tài liệu, triệu chứng, lập kế hoạch và trò chuyện. Có giọng nói TTS, bộ nhớ dài hạn, REST API và bộ đánh giá độ trễ, độ tin cậy.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · FastAPI · LangGraph · FAISS · SentenceTransformers · Groq API · Streamlit
                 </div>
@@ -246,7 +265,7 @@
                   </div>
                 </div>
                 <h3 class="project-title" id="p2Title">JD Intelligence Agent</h3>
-                <p class="project-desc" data-i18n="project2">Pipeline trích xuất 9+ chiều yêu cầu từ JD thô bằng few-shot prompting và schema-guided outputs. Đối sánh CV, tạo hướng dẫn phỏng vấn, soạn cover letter — toàn bộ end-to-end trong Streamlit với hỗ trợ PDF/DOCX/TXT và đa ngôn ngữ.</p>
+                <p class="project-desc" data-i18n="project2">Công cụ đọc JD và bóc tách hơn 9 nhóm yêu cầu bằng few-shot prompting. Hệ thống đối sánh CV, chuẩn bị câu hỏi phỏng vấn và soạn cover letter, hỗ trợ PDF, DOCX, TXT cùng báo cáo đa ngôn ngữ.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · LangGraph · Groq LLM · Pydantic · Streamlit · Prompt Engineering
                 </div>
@@ -274,7 +293,7 @@
                   </div>
                 </div>
                 <h3 class="project-title" id="p3Title">TripMate Route AI</h3>
-                <p class="project-desc" data-i18n="project3">Hệ thống lập kế hoạch du lịch biến natural-language request thành lịch trình cá nhân hóa qua LangGraph workflow. Các agent chuyên biệt xử lý flight search, hotel, itinerary; tích hợp Groq, Tavily, AviationStack API real-time. State được persist trên PostgreSQL (Render).</p>
+                <p class="project-desc" data-i18n="project3">TripMate biến một yêu cầu tự nhiên thành lịch trình riêng cho từng người. Các agent phụ trách chuyến bay, khách sạn và hành trình; dữ liệu thời gian thực đến từ Groq, Tavily và AviationStack, còn PostgreSQL lưu lại trạng thái.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · FastAPI · LangGraph · PostgreSQL · Groq · Tavily · AviationStack
                 </div>
@@ -317,10 +336,10 @@
                   <circle cx="1020" cy="380" r="6" fill="#00d4aa"/>
                   <circle cx="540" cy="580" r="5" fill="#ff5c8a"/>
                   <circle cx="660" cy="520" r="5" fill="#ff5c8a"/>
-                  <text x="80" y="940" fill="#6a7e94" font-family="JetBrains Mono" font-size="22" font-weight="500">SMA_50</text>
-                  <text x="1180" y="940" fill="#6a7e94" font-family="JetBrains Mono" font-size="22" font-weight="500">SMA_200</text>
-                  <text x="80" y="100" fill="#00d4aa" font-family="JetBrains Mono" font-size="24" font-weight="700">+24.8%</text>
-                  <text x="80" y="140" fill="#6a7e94" font-family="JetBrains Mono" font-size="18">Sharpe 1.62 · MaxDD -11.3%</text>
+                  <text x="80" y="940" fill="#6a7e94" font-family="IBM Plex Mono" font-size="22" font-weight="500">SMA_50</text>
+                  <text x="1180" y="940" fill="#6a7e94" font-family="IBM Plex Mono" font-size="22" font-weight="500">SMA_200</text>
+                  <text x="80" y="100" fill="#00d4aa" font-family="IBM Plex Mono" font-size="24" font-weight="700">+24.8%</text>
+                  <text x="80" y="140" fill="#6a7e94" font-family="IBM Plex Mono" font-size="18">Sharpe 1.62 · MaxDD -11.3%</text>
                 </svg>
               </div>
               <div class="project-body">
@@ -329,7 +348,7 @@
                   <span class="project-category" data-i18n="catQuant">Quantitative Research</span>
                 </div>
                 <h3 class="project-title" id="p4Title">MA Crossover Backtester</h3>
-                <p class="project-desc" data-i18n="project4">Framework backtest chiến lược Golden/Death Cross với vectorized engine, transaction cost modeling, walk-forward validation, và sensitivity analysis. Pipeline từ raw OHLCV → signals → Sharpe, CAGR, Max Drawdown → dashboard Streamlit trực quan từng regime.</p>
+                <p class="project-desc" data-i18n="project4">Bộ công cụ backtest Golden/Death Cross với engine vector hóa, chi phí giao dịch, walk-forward validation và sensitivity analysis. Từ OHLCV, hệ thống tạo tín hiệu rồi đo Sharpe, CAGR, Max Drawdown theo từng trạng thái thị trường.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · pandas · NumPy · TA-Lib · yfinance · Streamlit · Plotly
                 </div>
@@ -363,7 +382,7 @@
                     <line x1="0" y1="768" x2="1536" y2="768"/>
                   </g>
                   <circle cx="768" cy="512" r="240" fill="url(#nodeQ5)"/>
-                  <g font-family="JetBrains Mono" font-weight="700" text-anchor="middle">
+                  <g font-family="IBM Plex Mono" font-weight="700" text-anchor="middle">
                     <rect x="200" y="200" width="240" height="80" rx="8" fill="#141c29" stroke="#7c6dfa" stroke-width="1.5"/>
                     <text x="320" y="248" fill="#a8b8cc" font-size="22">Query Router</text>
                     <rect x="1096" y="200" width="240" height="80" rx="8" fill="#141c29" stroke="#00d4aa" stroke-width="1.5"/>
@@ -381,11 +400,11 @@
                   </g>
                   <g>
                     <circle cx="768" cy="512" r="60" fill="#0d1219" stroke="#7c6dfa" stroke-width="2"/>
-                    <text x="768" y="508" text-anchor="middle" fill="#f0f4f8" font-family="Space Grotesk" font-size="20" font-weight="700">Groq</text>
-                    <text x="768" y="532" text-anchor="middle" fill="#a8b8cc" font-family="JetBrains Mono" font-size="14">LLM</text>
+                    <text x="768" y="508" text-anchor="middle" fill="#f0f4f8" font-family="Be Vietnam Pro" font-size="20" font-weight="700">Groq</text>
+                    <text x="768" y="532" text-anchor="middle" fill="#a8b8cc" font-family="IBM Plex Mono" font-size="14">LLM</text>
                   </g>
-                  <text x="80" y="100" fill="#7c6dfa" font-family="JetBrains Mono" font-size="24" font-weight="700">3 paths</text>
-                  <text x="80" y="140" fill="#6a7e94" font-family="JetBrains Mono" font-size="18">Market · RAG · Combined</text>
+                  <text x="80" y="100" fill="#7c6dfa" font-family="IBM Plex Mono" font-size="24" font-weight="700">3 paths</text>
+                  <text x="80" y="140" fill="#6a7e94" font-family="IBM Plex Mono" font-size="18">Market · RAG · Combined</text>
                 </svg>
               </div>
               <div class="project-body">
@@ -394,7 +413,7 @@
                   <span class="project-category" data-i18n="catQuant">Quantitative Research</span>
                 </div>
                 <h3 class="project-title" id="p5Title">AI Financial Assistant</h3>
-                <p class="project-desc" data-i18n="project5">Trợ lý tài chính song ngữ với hybrid architecture: 3 đường xử lý (Market Data real-time, Knowledge RAG, Combined analysis). Query router tự động phân luồng khái niệm / dữ liệu số / phân tích tổng hợp. ETL pipeline nạp báo cáo tài chính, citation có cấu trúc, tích hợp vnstock · Yahoo Finance · EcoData macro.</p>
+                <p class="project-desc" data-i18n="project5">Trợ lý tài chính song ngữ với ba hướng xử lý: dữ liệu thị trường, Knowledge RAG và phân tích kết hợp. Query router tự chọn đường đi; ETL pipeline nạp báo cáo và kết nối vnstock, Yahoo Finance cùng dữ liệu vĩ mô EcoData.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · FastAPI · Qdrant · BGE · Groq · DuckDB · LangChain
                 </div>
@@ -443,10 +462,10 @@
                     <line x1="1080" y1="280" x2="1200" y2="340"/>
                     <line x1="1200" y1="340" x2="1280" y2="260"/>
                   </g>
-                  <text x="1080" y="200" fill="#ff5c8a" font-family="JetBrains Mono" font-size="18" font-weight="700">ANOMALY</text>
-                  <text x="440" y="780" fill="#00d4aa" font-family="JetBrains Mono" font-size="20" font-weight="700">NORMAL</text>
-                  <text x="80" y="100" fill="#f0f4f8" font-family="Space Grotesk" font-size="24" font-weight="700">Isolation Forest · One-Class SVM</text>
-                  <text x="80" y="140" fill="#6a7e94" font-family="JetBrains Mono" font-size="18">Autoencoder (PyTorch) · SHAP explainability</text>
+                  <text x="1080" y="200" fill="#ff5c8a" font-family="IBM Plex Mono" font-size="18" font-weight="700">ANOMALY</text>
+                  <text x="440" y="780" fill="#00d4aa" font-family="IBM Plex Mono" font-size="20" font-weight="700">NORMAL</text>
+                  <text x="80" y="100" fill="#f0f4f8" font-family="Be Vietnam Pro" font-size="24" font-weight="700">Isolation Forest · One-Class SVM</text>
+                  <text x="80" y="140" fill="#6a7e94" font-family="IBM Plex Mono" font-size="18">Autoencoder (PyTorch) · SHAP explainability</text>
                 </svg>
               </div>
               <div class="project-body">
@@ -455,7 +474,7 @@
                   <span class="project-category" data-i18n="catQuant">Quantitative Research</span>
                 </div>
                 <h3 class="project-title" id="p6Title">SECOM Anomaly Detection</h3>
-                <p class="project-desc" data-i18n="project6">Pipeline end-to-end phát hiện anomaly trên dữ liệu sensor bán dẫn (UCI SECOM) — cùng bài toán unsupervised phát hiện bất thường áp dụng cho risk / fraud detection trong finance. So sánh Isolation Forest, One-Class SVM, Autoencoder PyTorch. SHAP giải thích feature nào đẩy điểm vào vùng bất thường.</p>
+                <p class="project-desc" data-i18n="project6">Pipeline phát hiện bất thường trên dữ liệu cảm biến bán dẫn UCI SECOM. Dự án so sánh Isolation Forest, One-Class SVM và PyTorch Autoencoder, rồi dùng SHAP để chỉ ra yếu tố khiến một điểm dữ liệu trở nên khác thường.</p>
                 <div class="project-stack" aria-hidden="true">
                   Python · PyTorch · scikit-learn · SHAP · pandas · Streamlit
                 </div>
@@ -493,12 +512,17 @@
       <div class="container">
         <div class="section-label reveal">
           <span class="label-num" aria-hidden="true">03</span>
-          <span data-i18n="recognitionLabel">Ghi nhận</span>
+          <span data-i18n="recognitionLabel">Chương 03 · Những nền tảng phía sau</span>
         </div>
-        <h2 class="section-heading reveal" id="recognitionHeading" data-i18n-html="recognitionHeading">Ghi nhận<br>&amp; <span>nền tảng</span></h2>
+          <h2 class="section-heading reveal" id="recognitionHeading" data-i18n-html="recognitionHeading">Điều đứng sau<br>&amp; <span>những sản phẩm đó.</span></h2>
 
-        <div class="awards-grid">
-          <div class="award-card reveal">
+        <div class="awards-block reveal" aria-labelledby="awardsHeading">
+          <div class="awards-header">
+            <h3 class="awards-heading" id="awardsHeading" data-i18n="awardsHeading">Học bổng &amp; học thuật</h3>
+            <span class="awards-count" aria-hidden="true">03</span>
+          </div>
+          <div class="awards-grid" role="list">
+          <div class="award-card reveal" role="listitem">
             <div class="award-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
@@ -508,7 +532,7 @@
               <p class="award-sub" data-i18n="award1sub">Ghi nhận thành tích học tập và tiềm năng phát triển</p>
             </div>
           </div>
-          <div class="award-card reveal">
+          <div class="award-card reveal" role="listitem">
             <div class="award-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
@@ -518,7 +542,7 @@
               <p class="award-sub" data-i18n="award2sub">Ghi nhận thái độ học tập và định hướng nghề nghiệp</p>
             </div>
           </div>
-          <div class="award-card reveal">
+          <div class="award-card reveal" role="listitem">
             <div class="award-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M12 14v8M8 18h8"/></svg>
             </div>
@@ -529,6 +553,19 @@
             </div>
           </div>
         </div>
+        </div>
+        <div class="credentials-block reveal" aria-labelledby="credentialsHeading">
+          <div class="credentials-header">
+            <h3 class="credentials-heading" id="credentialsHeading" data-i18n="credentialsHeading">Chứng chỉ chuyên môn</h3>
+            <span class="credentials-count" aria-hidden="true">04</span>
+          </div>
+          <div class="credentials-grid" role="list">
+            <article class="credential-item" role="listitem"><span class="credential-index" aria-hidden="true">01</span><div class="credential-content"><p class="credential-name" data-i18n="credential1">Hypothesis Testing in Python</p><p class="credential-issuer" data-i18n="credential1Issuer">DataCamp</p></div></article>
+            <article class="credential-item" role="listitem"><span class="credential-index" aria-hidden="true">02</span><div class="credential-content"><p class="credential-name" data-i18n="credential2">AI &amp; Data Science Foundation</p><p class="credential-issuer" data-i18n="credential2Issuer">Quanskill</p></div></article>
+            <article class="credential-item" role="listitem"><span class="credential-index" aria-hidden="true">03</span><div class="credential-content"><p class="credential-name" data-i18n="credential3">Data Streaming Engineer — Apache Flink®</p><p class="credential-issuer" data-i18n="credential3Issuer">Confluent, an IBM Company</p></div></article>
+            <article class="credential-item" role="listitem"><span class="credential-index" aria-hidden="true">04</span><div class="credential-content"><p class="credential-name" data-i18n="credential4">Data Streaming Engineer Foundations</p><p class="credential-issuer" data-i18n="credential4Issuer">Confluent, an IBM Company</p></div></article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -536,8 +573,8 @@
     <section class="contact section" id="contact" aria-labelledby="contactHeading">
       <div class="container">
         <div class="contact-inner reveal">
-          <p class="contact-eyebrow" data-i18n="contactEyebrow">AI Engineer · Quant Researcher · Open to opportunities</p>
-          <h2 class="contact-heading" id="contactHeading" data-i18n-html="contactHeading">Hãy cùng nhau<br><em>chia sẻ những ý tưởng tuyệt vời.</em></h2>
+          <p class="contact-eyebrow" data-i18n="contactEyebrow">Một câu hỏi hay luôn đáng để bắt đầu</p>
+          <h2 class="contact-heading" id="contactHeading" data-i18n-html="contactHeading">Nếu bạn cũng đang<br><em>đi tìm một lời giải.</em></h2>
           <div class="contact-links">
             <a class="btn-primary btn-large" href="mailto:tranthanhdat.hvt@gmail.com">
               tranthanhdat.hvt@gmail.com
@@ -556,6 +593,7 @@
           <a href="mailto:tranthanhdat.hvt@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
           <a href="https://www.linkedin.com/in/%C4%91%E1%BA%A1t-tr%E1%BA%A7n-958337251" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/Dartrint" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="light.html">Bản sáng</a>
         </nav>
         <button class="back-to-top" id="backToTop" aria-label="Lên đầu trang">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 15l7-7 7 7"/></svg>
