@@ -988,10 +988,41 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-3);
   padding-top: var(--space-3);
   border-top: 1px solid var(--border);
   margin-top: auto;
+}
+
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: var(--space-2) 0;
+}
+
+.project-metric {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+}
+
+.project-metric strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.project-metric span {
+  color: var(--text-2);
+  font-size: 10px;
+  line-height: 1.35;
 }
 
 .discuss-link {
@@ -1874,9 +1905,10 @@ body { background: var(--bg-0); }
 .light-work { background: rgba(255,255,255,0.32); }
 .light-work-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
 .light-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 60px; }
+.light-projects--featured { grid-template-columns: minmax(0, 520px); justify-content: center; }
 .light-project { min-height: 390px; padding: 24px; border: 1px solid var(--light-line); background: var(--light-paper); color: var(--light-ink); text-decoration: none; box-shadow: 0 12px 36px rgba(55, 104, 140, 0.05); transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease; }
-.light-project.is-hidden { display: none; }
 .light-project:hover { border-color: var(--light-blue); box-shadow: 0 24px 55px rgba(55, 104, 140, 0.14); transform: translateY(-8px); }
+.light-project:focus-within { outline: 2px solid var(--light-blue-deep); outline-offset: 4px; }
 .light-project--blue { color: #fff; background: var(--light-blue-deep); border-color: var(--light-blue-deep); }
 .light-project-number, .light-project-type { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; }
 .light-project-type { margin-top: 10px; color: var(--light-muted); }
@@ -1884,10 +1916,14 @@ body { background: var(--bg-0); }
 .light-project h3 { margin: 92px 0 14px; font-family: 'Newsreader', Georgia, serif; font-size: 34px; font-weight: 500; line-height: 0.94; }
 .light-project p { min-height: 66px; color: var(--light-muted); font-size: 13px; line-height: 1.6; }
 .light-project--blue p { color: rgba(255,255,255,0.78); }
-.light-project-arrow { display: block; margin-top: 24px; color: var(--light-blue-deep); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+.light-project-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 22px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.22); border-bottom: 1px solid rgba(255,255,255,0.22); }
+.light-project-metrics span { display: flex; flex-direction: column; gap: 5px; }
+.light-project-metrics strong { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500; }
+.light-project-metrics small { color: rgba(255,255,255,0.72); font-size: 10px; line-height: 1.35; }
+.light-project-actions { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 22px; }
+.light-project-arrow { display: block; color: var(--light-blue-deep); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
 .light-project--blue .light-project-arrow { color: #fff; }
-.light-projects-toggle { display: inline-flex; align-items: center; gap: 14px; margin-top: 28px; padding: 12px 18px; border: 1px solid var(--light-line); border-radius: 999px; color: var(--light-ink); background: transparent; cursor: pointer; font: 600 11px 'DM Sans', sans-serif; transition: color 180ms ease, border-color 180ms ease, background 180ms ease; }
-.light-projects-toggle:hover { color: var(--light-blue-deep); border-color: var(--light-blue); background: rgba(143, 196, 240, 0.12); }
+.light-project-arrow:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .light-education-grid { display: grid; grid-template-columns: 1fr 0.8fr; gap: 12vw; align-items: start; }
 .light-education-timeline { display: grid; gap: 0; max-width: 920px; margin: 86px 0 0 auto; border-top: 1px solid var(--light-line); }
 .light-education-timeline article { display: grid; grid-template-columns: 180px 1fr; gap: 34px; padding: 25px 0; border-bottom: 1px solid var(--light-line); }

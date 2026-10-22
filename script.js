@@ -23,16 +23,14 @@ const translations = {
     lightStoryBody: "Tôi thường bắt đầu ở nơi mọi thứ còn chưa rõ tên. Tôi lắng nghe bối cảnh, tìm cấu trúc bên dưới dữ liệu và đặt lại câu hỏi cho đúng trước khi nghĩ đến lời giải.",
     lightWorkLabel: "Những gì đã thành hình",
     lightWorkTitle: "Ý tưởng chỉ thật sự sống<br><em>khi có người dùng nó.</em>",
-    lightWorkBody: "Ba lát cắt từ hành trình xây hệ thống AI và định lượng.",
-    lightProject1: "Trợ lý y tế kết nối tri thức, triệu chứng và hội thoại trong một hệ thống có bộ nhớ dài hạn.",
-    lightProject2: "Đọc JD, bóc tách yêu cầu và biến chúng thành những bước chuẩn bị cụ thể hơn.",
-    lightProject3: "Phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.",
-    lightProject4: "Kiểm thử chiến lược Golden/Death Cross từ dữ liệu OHLCV đến Sharpe, CAGR và Max Drawdown.",
-    lightProject5: "Trợ lý tài chính song ngữ kết hợp dữ liệu thị trường, Knowledge RAG và phân tích tổng hợp.",
-    lightProject6: "Phát hiện bất thường trên dữ liệu cảm biến bằng Isolation Forest, One-Class SVM, Autoencoder và SHAP.",
+    lightWorkBody: "Một demo tương tác đang hoạt động, với số liệu thể hiện rõ phạm vi sản phẩm.",
+    lightProject5: "Ứng dụng web tiếng Việt để tra cứu giá cổ phiếu, xem biểu đồ lịch sử và hỏi đáp kiến thức tài chính. Có thể dùng thử mà không cần đăng nhập.",
+    lightDemo: "Mở demo tương tác ↗",
     lightGithub: "Xem GitHub ↗",
-    lightViewMore: "Xem thêm dự án",
-    lightCollapse: "Thu gọn dự án",
+    project5Category: "AI / Tài chính",
+    metricTickers: "mã cổ phiếu",
+    metricRanges: "khung biểu đồ",
+    metricMessages: "tin nhắn tối đa / phiên khách",
     lightEducationLabel: "Nền tảng phía sau",
     lightThemeDark: "Dark",
     lightContact: "Kết nối",
@@ -119,7 +117,7 @@ const translations = {
     project2: "Công cụ đọc JD và bóc tách hơn 9 nhóm yêu cầu bằng few-shot prompting. Hệ thống đối sánh CV, chuẩn bị câu hỏi phỏng vấn và soạn cover letter, hỗ trợ PDF, DOCX, TXT cùng báo cáo đa ngôn ngữ.",
     project3: "TripMate biến một yêu cầu tự nhiên thành lịch trình riêng cho từng người. Các agent phụ trách chuyến bay, khách sạn và hành trình; dữ liệu thời gian thực đến từ Groq, Tavily và AviationStack, còn PostgreSQL lưu lại trạng thái.",
     project4: "Bộ công cụ backtest Golden/Death Cross với engine vector hóa, chi phí giao dịch, walk-forward validation và sensitivity analysis. Từ OHLCV, hệ thống tạo tín hiệu rồi đo Sharpe, CAGR, Max Drawdown theo từng trạng thái thị trường.",
-    project5: "Trợ lý tài chính song ngữ với ba hướng xử lý: dữ liệu thị trường, Knowledge RAG và phân tích kết hợp. Query router tự chọn đường đi; ETL pipeline nạp báo cáo và kết nối vnstock, Yahoo Finance cùng dữ liệu vĩ mô EcoData.",
+    project5: "Findata là ứng dụng web tiếng Việt với 3 chức năng: tra cứu giá cổ phiếu, xem biểu đồ lịch sử và hỏi đáp tài chính. Bảng giá gồm 15 mã; biểu đồ có 5 khung từ 1 tháng đến 5 năm. Khách dùng thử không cần đăng nhập.",
     project6: "Pipeline phát hiện bất thường trên dữ liệu cảm biến bán dẫn UCI SECOM. Dự án so sánh Isolation Forest, One-Class SVM và PyTorch Autoencoder, rồi dùng SHAP để chỉ ra yếu tố khiến một điểm dữ liệu trở nên khác thường.",
     viewMore: 'Xem thêm dự án',
     recognitionLabel: "Chương 03 · Những nền tảng phía sau",
@@ -200,16 +198,14 @@ const translations = {
     lightStoryBody: "I often begin where things do not yet have a clear name. I listen for context, look for the structure beneath the data, and reshape the question before reaching for an answer.",
     lightWorkLabel: "What took shape",
     lightWorkTitle: "An idea comes alive<br><em>when someone can use it.</em>",
-    lightWorkBody: "Three slices from the work of building AI and quantitative systems.",
-    lightProject1: "A healthcare assistant connecting knowledge, symptoms, and conversation with long-term memory.",
-    lightProject2: "Reads job descriptions, extracts requirements, and turns them into concrete preparation steps.",
-    lightProject3: "Coordinates specialized agents to turn a natural-language request into an itinerary people can use.",
-    lightProject4: "Backtests a Golden/Death Cross strategy from OHLCV data to Sharpe, CAGR, and Max Drawdown.",
-    lightProject5: "A bilingual financial assistant combining market data, Knowledge RAG, and joined-up analysis.",
-    lightProject6: "Detects anomalies in sensor data with Isolation Forest, One-Class SVM, Autoencoder, and SHAP.",
+    lightWorkBody: "A live interactive demo, with numbers that make its scope tangible.",
+    lightProject5: "A Vietnamese-language web app for stock quotes, historical charts, and financial Q&A. Visitors can try it without signing in.",
+    lightDemo: "Open interactive demo ↗",
     lightGithub: "View GitHub ↗",
-    lightViewMore: "View more projects",
-    lightCollapse: "Collapse projects",
+    project5Category: "AI / Finance",
+    metricTickers: "stock tickers",
+    metricRanges: "chart ranges",
+    metricMessages: "max messages / guest session",
     lightEducationLabel: "What stands behind the work",
     lightThemeDark: "Dark",
     lightContact: "Connect",
@@ -296,7 +292,7 @@ const translations = {
     project2: "A pipeline that extracts more than nine requirement dimensions from raw job descriptions with few-shot prompting and schema-guided output. It supports CV matching, interview preparation, and cover-letter drafting in Streamlit with PDF/DOCX/TXT and multilingual reporting.",
     project3: "A travel planner that turns natural-language requests into personal itineraries through LangGraph. Specialized agents handle flights, hotels, and planning; Groq, Tavily, and AviationStack provide live information while PostgreSQL keeps the state.",
     project4: "A Golden/Death Cross backtesting framework with a vectorized engine, transaction-cost modeling, walk-forward validation, and sensitivity analysis. It turns OHLCV data into signals, Sharpe, CAGR, Max Drawdown, and a Streamlit dashboard by market regime.",
-    project5: "A bilingual financial assistant with three paths: live market data, Knowledge RAG, and combined analysis. A query router directs each question while an ETL pipeline ingests financial reports and connects vnstock, Yahoo Finance, and EcoData macro data.",
+    project5: "Findata is a Vietnamese-language web app with 3 features: stock quotes, historical charts, and financial Q&A. It covers 15 tickers across 5 chart ranges (1 month to 5 years); guest sessions allow up to 200 messages.",
     project6: "An anomaly-detection pipeline for UCI SECOM semiconductor sensor data. The unsupervised approach is applicable to risk and fraud detection; it compares Isolation Forest, One-Class SVM, and a PyTorch Autoencoder, with SHAP explaining the result.",
     viewMore: 'View all projects',
     recognitionLabel: "Chapter 03 · What stands behind them",
@@ -370,12 +366,6 @@ function setLanguage(lang) {
     const key = el.dataset.i18nHtml;
     if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
   });
-  const lightProjectsToggle = document.querySelector('.light-projects-toggle');
-  const lightProjectsLabel = lightProjectsToggle?.querySelector('[data-i18n]');
-  if (lightProjectsToggle && lightProjectsLabel) {
-    const key = lightProjectsToggle.getAttribute('aria-expanded') === 'true' ? 'lightCollapse' : 'lightViewMore';
-    lightProjectsLabel.textContent = translations[lang][key];
-  }
   document.querySelectorAll('.lang-btn, .light-lang-btn').forEach((btn) => {
     const active = btn.dataset.lang === lang;
     btn.classList.toggle('active', active);
@@ -627,26 +617,6 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
       });
     });
   });
-})();
-
-// ---- Light projects collapse ----
-(function initLightProjects() {
-  const projects = Array.from(document.querySelectorAll('.light-project'));
-  const toggle = document.querySelector('.light-projects-toggle');
-  if (!projects.length || !toggle) return;
-
-  let expanded = false;
-  const update = () => {
-    projects.forEach((project, index) => project.classList.toggle('is-hidden', !expanded && index >= 3));
-    toggle.setAttribute('aria-expanded', String(expanded));
-    const lang = localStorage.getItem('portfolio-lang') || 'vi';
-    const label = toggle.querySelector('[data-i18n]');
-    if (label) label.textContent = translations[lang][expanded ? 'lightCollapse' : 'lightViewMore'];
-    toggle.querySelector('[aria-hidden="true"]').textContent = expanded ? '↑' : '↓';
-  };
-
-  toggle.addEventListener('click', () => { expanded = !expanded; update(); });
-  update();
 })();
 
 // ---- Projects carousel ----
