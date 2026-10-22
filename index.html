@@ -64,21 +64,72 @@
 
       <section class="light-work" id="work">
         <div class="light-section-intro"><span>03</span><p data-i18n="lightWorkLabel">Những gì đã thành hình</p></div>
-        <div class="light-work-heading"><h2 data-i18n-html="lightWorkTitle">Ý tưởng chỉ thật sự sống<br><em>khi có người dùng nó.</em></h2><p data-i18n="lightWorkBody">Một demo tương tác đang hoạt động, với số liệu thể hiện rõ phạm vi sản phẩm.</p></div>
+        <div class="light-work-heading"><h2 data-i18n-html="lightWorkTitle">Ý tưởng chỉ thật sự sống<br><em>khi có người dùng nó.</em></h2><p data-i18n="lightWorkBody">Sáu dự án từ AI ứng dụng đến nghiên cứu định lượng — bắt đầu với Findata, demo bạn có thể trải nghiệm ngay.</p></div>
         <div class="light-projects light-projects--featured">
           <article class="light-project light-project--blue">
             <span class="light-project-number">01</span>
-            <span class="light-project-type">AI / FINANCE · LIVE DEMO</span>
+            <span class="light-project-type" data-i18n="lightProjectFinanceLive">AI / TÀI CHÍNH · DEMO TRỰC TIẾP</span>
             <h3>Findata<br>Financial Assistant</h3>
-            <p data-i18n="lightProject5">Ứng dụng web tiếng Việt để tra cứu giá cổ phiếu, xem biểu đồ lịch sử và hỏi đáp kiến thức tài chính. Có thể dùng thử mà không cần đăng nhập.</p>
+            <p data-i18n="project5">Findata là ứng dụng web tiếng Việt với 3 chức năng: tra cứu giá cổ phiếu, xem biểu đồ lịch sử và hỏi đáp tài chính. Bảng giá gồm 15 mã; biểu đồ có 5 khung từ 1 tháng đến 5 năm. Khách dùng thử không cần đăng nhập.</p>
             <div class="light-project-metrics">
               <span><strong>15</strong><small data-i18n="metricTickers">mã cổ phiếu</small></span>
               <span><strong>5</strong><small data-i18n="metricRanges">khung biểu đồ</small></span>
               <span><strong>200</strong><small data-i18n="metricMessages">tin nhắn tối đa / phiên khách</small></span>
             </div>
+            <p class="light-project-stack">Cloudflare Workers · Supabase · Workers AI · Yahoo Finance · Vite</p>
             <div class="light-project-actions">
               <a class="light-project-arrow" href="https://ai-financial-assistant.nhattubut.workers.dev/" target="_blank" rel="noopener noreferrer" data-i18n="lightDemo">Mở demo tương tác ↗</a>
               <a class="light-project-arrow" href="https://github.com/Dartrint/AI-Financial-Assistant" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
+            </div>
+          </article>
+          <article class="light-project">
+            <span class="light-project-number">02</span>
+            <span class="light-project-type" data-i18n="lightProjectHealthcare">AI / Y TẾ</span>
+            <h3>Healthcare AI Chatbot</h3>
+            <p data-i18n="project1">Trợ lý y tế dùng LangGraph để điều phối bốn luồng: hỏi đáp tài liệu, triệu chứng, lập kế hoạch và trò chuyện. Có giọng nói TTS, bộ nhớ dài hạn, REST API và bộ đánh giá độ trễ, độ tin cậy.</p>
+            <p class="light-project-stack">Python · FastAPI · LangGraph · FAISS · SentenceTransformers · Groq · Streamlit</p>
+            <div class="light-project-actions">
+              <a class="light-project-arrow" href="https://github.com/Dartrint/Healthcare-chatbot" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
+            </div>
+          </article>
+          <article class="light-project">
+            <span class="light-project-number">03</span>
+            <span class="light-project-type" data-i18n="lightProjectCareer">AI / HƯỚNG NGHIỆP</span>
+            <h3>JD Intelligence Agent</h3>
+            <p data-i18n="project2">Công cụ đọc JD và bóc tách hơn 9 nhóm yêu cầu bằng few-shot prompting. Hệ thống đối sánh CV, chuẩn bị câu hỏi phỏng vấn và soạn cover letter, hỗ trợ PDF, DOCX, TXT cùng báo cáo đa ngôn ngữ.</p>
+            <p class="light-project-stack">Python · LangGraph · Groq · Pydantic · Streamlit · Prompt Engineering</p>
+            <div class="light-project-actions">
+              <a class="light-project-arrow" href="https://github.com/Dartrint/Job-Application-Agent" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
+            </div>
+          </article>
+          <article class="light-project">
+            <span class="light-project-number">04</span>
+            <span class="light-project-type" data-i18n="lightProjectTravel">AI / DU LỊCH</span>
+            <h3>TripMate Route AI</h3>
+            <p data-i18n="project3">TripMate biến một yêu cầu tự nhiên thành lịch trình riêng cho từng người. Các agent phụ trách chuyến bay, khách sạn và hành trình; dữ liệu thời gian thực đến từ Groq, Tavily và AviationStack, còn PostgreSQL lưu lại trạng thái.</p>
+            <p class="light-project-stack">Python · FastAPI · LangGraph · PostgreSQL · Groq · Tavily · AviationStack</p>
+            <div class="light-project-actions">
+              <a class="light-project-arrow" href="https://github.com/Dartrint/TripMate" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
+            </div>
+          </article>
+          <article class="light-project">
+            <span class="light-project-number">05</span>
+            <span class="light-project-type" data-i18n="catQuant">Nghiên cứu định lượng</span>
+            <h3>MA Crossover Backtester</h3>
+            <p data-i18n="project4">Bộ công cụ backtest Golden/Death Cross với engine vector hóa, chi phí giao dịch, walk-forward validation và sensitivity analysis. Từ OHLCV, hệ thống tạo tín hiệu rồi đo Sharpe, CAGR, Max Drawdown theo từng trạng thái thị trường.</p>
+            <p class="light-project-stack">Python · pandas · NumPy · TA-Lib · yfinance · Streamlit · Plotly</p>
+            <div class="light-project-actions">
+              <a class="light-project-arrow" href="https://github.com/Dartrint/ma-crossover-strategy" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
+            </div>
+          </article>
+          <article class="light-project">
+            <span class="light-project-number">06</span>
+            <span class="light-project-type" data-i18n="lightProjectResearch">ML / NGHIÊN CỨU</span>
+            <h3>SECOM Anomaly Detection</h3>
+            <p data-i18n="project6">Pipeline phát hiện bất thường trên dữ liệu cảm biến bán dẫn UCI SECOM. Dự án so sánh Isolation Forest, One-Class SVM và PyTorch Autoencoder, rồi dùng SHAP để chỉ ra yếu tố khiến một điểm dữ liệu trở nên khác thường.</p>
+            <p class="light-project-stack">Python · PyTorch · scikit-learn · SHAP · pandas · Streamlit</p>
+            <div class="light-project-actions">
+              <a class="light-project-arrow" href="https://github.com/Dartrint/secom_project" target="_blank" rel="noopener noreferrer" data-i18n="lightGithub">Xem GitHub ↗</a>
             </div>
           </article>
         </div>
