@@ -5,6 +5,12 @@
 // ---- i18n ----
 const translations = {
   vi: {
+    menuOpen: 'Mở menu',
+    menuClose: 'Đóng menu',
+    collapseProjects: 'Thu gọn dự án',
+    previousProject: 'Dự án trước',
+    nextProject: 'Dự án tiếp theo',
+    goToProject: 'Đến dự án',
     navAbout: 'Về tôi',
     navProjects: 'Dự án',
     navJourney: 'Câu chuyện',
@@ -184,6 +190,12 @@ const translations = {
     journeyEndText: "Nếu bài toán đủ thú vị, tôi muốn cùng bạn đi qua cả ba lớp: hiểu đúng, xây chắc và tạo ra điều có ích.",
   },
   en: {
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    collapseProjects: 'Collapse projects',
+    previousProject: 'Previous project',
+    nextProject: 'Next project',
+    goToProject: 'Go to project',
     navAbout: 'About me',
     navProjects: 'Projects',
     navJourney: 'Story',
@@ -364,28 +376,96 @@ const translations = {
   },
 };
 
+let currentLanguage = 'vi';
+
 function setLanguage(lang) {
+  const messages = translations[lang];
+  if (!messages) return;
+
+  currentLanguage = lang;
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
-    if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+    if (messages[key] !== undefined) el.textContent = messages[key];
   });
   document.querySelectorAll('[data-i18n-html]').forEach((el) => {
     const key = el.dataset.i18nHtml;
-    if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+    if (messages[key] !== undefined) el.innerHTML = messages[key];
   });
   document.querySelectorAll('.lang-btn, .light-lang-btn').forEach((btn) => {
     const active = btn.dataset.lang === lang;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', String(active));
   });
-  localStorage.setItem('portfolio-lang', lang);
+  const viewMoreText = document.querySelector('#viewMoreBtn .view-more-text');
+  const viewMoreButton = document.getElementById('viewMoreBtn');
+  if (viewMoreButton) {
+    const expanded = viewMoreButton.classList.contains('active');
+    viewMoreButton.setAttribute(
+      'aria-label',
+      expanded ? messages.collapseProjects : messages.viewMore
+    );
+    if (viewMoreText && expanded) viewMoreText.textContent = messages.collapseProjects;
+  }
+  document.getElementById('carouselPrev')?.setAttribute('aria-label', messages.previousProject);
+  document.getElementById('carouselNext')?.setAttribute('aria-label', messages.nextProject);
+  document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+    dot.setAttribute('aria-label', `${messages.goToProject} ${index + 1}`);
+  });
+
+  try {
+    localStorage.setItem('portfolio-lang', lang);
+  } catch (error) {
+    console.warn('Unable to save the selected language.', error);
+  }
 }
 
 document.querySelectorAll('.lang-btn, .light-lang-btn').forEach((btn) =>
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang))
 );
-setLanguage(localStorage.getItem('portfolio-lang') || 'vi');
+let savedLanguage = 'vi';
+try {
+  const storedLanguage = localStorage.getItem('portfolio-lang');
+  if (storedLanguage && translations[storedLanguage]) savedLanguage = storedLanguage;
+} catch (error) {
+  console.warn('Unable to read the saved language.', error);
+}
+setLanguage(savedLanguage);
+
+// ---- Responsive navigation ----
+(function initNavigationMenus() {
+  document.querySelectorAll('[data-nav-toggle]').forEach((toggle) => {
+    const nav = toggle.closest('nav');
+    const links = document.getElementById(toggle.getAttribute('aria-controls'));
+    const label = toggle.querySelector('.sr-only');
+    if (!nav || !links || !label) return;
+
+    nav.classList.add('menu-ready');
+
+    const setOpen = (open) => {
+      nav.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      label.dataset.i18n = open ? 'menuClose' : 'menuOpen';
+      label.textContent = translations[currentLanguage][label.dataset.i18n];
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+    links.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+    nav.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) setOpen(false);
+    }, { passive: true });
+  });
+})();
 
 // ---- Cursor glow ----
 const cursorGlow = document.getElementById('cursorGlow');
@@ -460,7 +540,7 @@ onScroll();
     const timelineTop = timeline.getBoundingClientRect().top + window.scrollY;
     const timelineHeight = timeline.getBoundingClientRect().height;
     const percent = Math.max(0, Math.min(100, ((progress || readingLine) - timelineTop) / timelineHeight * 100));
-    timeline.style.setProperty('--timeline-progress', `${percent}%`);
+    timeline.style.setProperty('--timeline-progress-scale', String(percent / 100));
   };
 
   window.addEventListener('scroll', updateTimeline, { passive: true });
@@ -497,7 +577,8 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
   let W, H, particles, animId;
   const GRID = 60;
   const PARTICLE_COUNT = 55;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reduced = motionPreference.matches;
 
   function resize() {
     W = canvas.width = window.innerWidth;
@@ -589,7 +670,7 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     } else {
       drawParticles();
     }
-    animId = requestAnimationFrame(render);
+    if (!reduced) animId = requestAnimationFrame(render);
   }
 
   resize();
@@ -602,6 +683,11 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     initParticles();
     render();
   }, { passive: true });
+  motionPreference.addEventListener('change', (event) => {
+    reduced = event.matches;
+    cancelAnimationFrame(animId);
+    render();
+  });
 })();
 
 // ---- Journey layer interaction ----
@@ -636,21 +722,25 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
   const dotsContainer = document.getElementById('carouselDots');
   const viewMoreBtn = document.getElementById('viewMoreBtn');
 
-  if (!carousel || !track) return;
+  if (!carousel || !track || !dotsContainer) return;
 
   const cards = Array.from(track.children);
   let currentIndex = 0;
   let autoPlayTimer = null;
   let isExpanded = false;
+  let isHovered = false;
+  let hasFocus = false;
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const pointerPreference = window.matchMedia('(hover: hover) and (pointer: fine)');
   const AUTO_INTERVAL = 3800;
 
   // ---- dots ----
   cards.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('role', 'tab');
-    dot.setAttribute('aria-selected', String(i === 0));
-    dot.setAttribute('aria-label', 'Dự án ' + (i + 1));
+    dot.type = 'button';
+    dot.setAttribute('aria-current', String(i === 0));
+    dot.setAttribute('aria-label', `${translations[currentLanguage].goToProject} ${i + 1}`);
     dot.addEventListener('click', () => goTo(i));
     dotsContainer.appendChild(dot);
   });
@@ -660,7 +750,8 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
   function getCardWidth() {
     const card = cards[0];
     if (!card) return 320;
-    return card.getBoundingClientRect().width + 24; // width + gap
+    const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
+    return card.getBoundingClientRect().width + gap;
   }
 
   function updateTrack() {
@@ -668,11 +759,12 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     track.style.transform = `translateX(${-currentIndex * getCardWidth()}px)`;
     dots().forEach((d, i) => {
       d.classList.toggle('active', i === currentIndex);
-      d.setAttribute('aria-selected', String(i === currentIndex));
+      d.setAttribute('aria-current', String(i === currentIndex));
     });
   }
 
   function goTo(index) {
+    if (!cards.length) return;
     currentIndex = ((index % cards.length) + cards.length) % cards.length;
     updateTrack();
   }
@@ -682,7 +774,10 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
 
   function startAuto() {
     stopAuto();
-    autoPlayTimer = setInterval(next, AUTO_INTERVAL);
+    if (!isExpanded && !isHovered && !hasFocus && !document.hidden &&
+        !motionPreference.matches && pointerPreference.matches) {
+      autoPlayTimer = setInterval(next, AUTO_INTERVAL);
+    }
   }
 
   function stopAuto() {
@@ -693,8 +788,30 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
   nextBtn?.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
 
   // pause on hover
-  carousel.addEventListener('mouseenter', stopAuto);
-  carousel.addEventListener('mouseleave', () => { if (!isExpanded) startAuto(); });
+  carousel.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopAuto();
+  });
+  carousel.addEventListener('mouseleave', () => {
+    isHovered = false;
+    startAuto();
+  });
+  carousel.addEventListener('focusin', () => {
+    hasFocus = true;
+    stopAuto();
+  });
+  carousel.addEventListener('focusout', (event) => {
+    if (!carousel.contains(event.relatedTarget)) {
+      hasFocus = false;
+      startAuto();
+    }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
+  motionPreference.addEventListener('change', () => startAuto());
+  pointerPreference.addEventListener('change', () => startAuto());
 
   // touch/swipe support
   let touchStartX = 0;
@@ -709,13 +826,17 @@ document.getElementById('backToTop')?.addEventListener('click', () => {
     isExpanded = !isExpanded;
     carousel.classList.toggle('expanded', isExpanded);
     viewMoreBtn.classList.toggle('active', isExpanded);
+    viewMoreBtn.setAttribute('aria-expanded', String(isExpanded));
+    viewMoreBtn.setAttribute(
+      'aria-label',
+      isExpanded ? translations[currentLanguage].collapseProjects : translations[currentLanguage].viewMore
+    );
 
     const textEl = viewMoreBtn.querySelector('.view-more-text');
     if (textEl) {
-      const lang = localStorage.getItem('portfolio-lang') || 'vi';
       textEl.textContent = isExpanded
-        ? (lang === 'vi' ? 'Thu gọn' : 'Collapse')
-        : (lang === 'vi' ? 'Xem thêm dự án' : 'View all projects');
+        ? translations[currentLanguage].collapseProjects
+        : translations[currentLanguage].viewMore;
     }
 
     if (isExpanded) {

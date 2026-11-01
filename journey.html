@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=index.html#about" />
     <meta name="description" content="Hành trình làm việc của Trần Thành Đạt — từ câu hỏi đến hệ thống AI có ích." />
+    <meta name="theme-color" content="#080c10" />
     <title>Hành trình — Trần Thành Đạt</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,11 +30,11 @@
           <span class="logo-text">TTĐ</span>
           <span class="logo-bracket" aria-hidden="true">]</span>
         </a>
-        <ul class="nav-links" role="list">
-          <li><a class="nav-link" href="index.html#about" data-i18n="navAbout">Giới thiệu</a></li>
-          <li><a class="nav-link" href="index.html#projects" data-i18n="navProjects">Dự án</a></li>
+        <ul class="nav-links" id="journey-navigation" role="list">
+          <li><a class="nav-link" href="dark.html#about" data-i18n="navAbout">Giới thiệu</a></li>
+          <li><a class="nav-link" href="dark.html#projects" data-i18n="navProjects">Dự án</a></li>
           <li><a class="nav-link active" href="journey.html" data-i18n="navJourney">Hành trình</a></li>
-          <li><a class="nav-link" href="index.html#recognition" data-i18n="navRecognition">Dấu ấn</a></li>
+          <li><a class="nav-link" href="dark.html#recognition" data-i18n="navRecognition">Dấu ấn</a></li>
         </ul>
         <div class="nav-actions">
           <div class="language-switcher" aria-label="Language selector">
@@ -47,11 +47,15 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
+        <button class="nav-menu-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="journey-navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          <span class="sr-only" data-i18n="menuOpen">Mở menu</span>
+        </button>
       </div>
     </nav>
 
     <main>
-      <section class="journey-hero" aria-labelledby="journeyHeading">
+      <section class="journey-hero" id="top" aria-labelledby="journeyHeading">
         <div class="journey-hero-inner">
           <div class="journey-hero-copy reveal">
             <p class="journey-label" data-i18n="journeyLabel">Một hành trình được xây từ những câu hỏi</p>
@@ -122,15 +126,15 @@
           <div class="proof-grid">
             <article class="proof-card reveal">
               <div class="proof-card-image"><img src="assets/healthcare-chatbot.svg" alt="Healthcare AI Chatbot" loading="lazy" /></div>
-              <div class="proof-card-body"><span class="proof-index">01</span><h3 data-i18n="journeyProof1Title">Khi dữ liệu cần một giọng nói</h3><p data-i18n="journeyProof1Body">Healthcare AI Chatbot nối tri thức, triệu chứng và hội thoại trong một trợ lý có bộ nhớ dài hạn.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+              <div class="proof-card-body"><span class="proof-index">01</span><h3 data-i18n="journeyProof1Title">Khi dữ liệu cần một giọng nói</h3><p data-i18n="journeyProof1Body">Healthcare AI Chatbot nối tri thức, triệu chứng và hội thoại trong một trợ lý có bộ nhớ dài hạn.</p><a href="dark.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
             </article>
             <article class="proof-card reveal">
               <div class="proof-card-image"><img src="assets/jd-agent.svg" alt="JD Intelligence Agent" loading="lazy" /></div>
-              <div class="proof-card-body"><span class="proof-index">02</span><h3 data-i18n="journeyProof2Title">Khi một JD cần được đọc kỹ</h3><p data-i18n="journeyProof2Body">JD Intelligence Agent biến mô tả tuyển dụng thô thành bản đồ yêu cầu, câu hỏi phỏng vấn và bước chuẩn bị cụ thể.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+              <div class="proof-card-body"><span class="proof-index">02</span><h3 data-i18n="journeyProof2Title">Khi một JD cần được đọc kỹ</h3><p data-i18n="journeyProof2Body">JD Intelligence Agent biến mô tả tuyển dụng thô thành bản đồ yêu cầu, câu hỏi phỏng vấn và bước chuẩn bị cụ thể.</p><a href="dark.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
             </article>
             <article class="proof-card reveal">
               <div class="proof-card-image"><img src="assets/tripmate-ai.svg" alt="TripMate Route AI" loading="lazy" /></div>
-              <div class="proof-card-body"><span class="proof-index">03</span><h3 data-i18n="journeyProof3Title">Khi một chuyến đi cần có nhịp riêng</h3><p data-i18n="journeyProof3Body">TripMate phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.</p><a href="index.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
+              <div class="proof-card-body"><span class="proof-index">03</span><h3 data-i18n="journeyProof3Title">Khi một chuyến đi cần có nhịp riêng</h3><p data-i18n="journeyProof3Body">TripMate phối hợp các agent để biến một câu yêu cầu tự nhiên thành lịch trình có thể dùng được.</p><a href="dark.html#projects" class="proof-link"><span data-i18n="viewProjects">Xem dự án</span> <span aria-hidden="true">↗</span></a></div>
             </article>
           </div>
         </div>
